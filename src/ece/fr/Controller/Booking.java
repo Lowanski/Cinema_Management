@@ -1,4 +1,11 @@
 package ece.fr.Controller;
 
-public class Booking {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Booking extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
 }
