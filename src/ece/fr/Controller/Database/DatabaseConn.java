@@ -1,15 +1,13 @@
-package ece.fr.Controller;
+package ece.fr.Controller.Database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class Database {
+public class DatabaseConn {
     Connection conn = null;
-
 
     public Connection createConnection()
     {
-
         try
         {
             // db parameters
