@@ -11,7 +11,7 @@ public class DatabaseConn {
         try
         {
             // db parameters
-            String url       = "jdbc:mysql://localhost:3306/"; // Enter a database name
+            String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
             String user      = "root";
             String password  = "root";
 
