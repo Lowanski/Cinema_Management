@@ -13,7 +13,7 @@ public class Database {
         try
         {
             // db parameters
-            String url       = "jdbc:mysql://localhost:3306/"; // Enter a database name
+            String url       = "jdbc:mysql://localhost:3306/"; // 8889
             String user      = "root";
             String password  = "root";
 
