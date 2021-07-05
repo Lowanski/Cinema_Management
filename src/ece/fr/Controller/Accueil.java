@@ -1,16 +1,201 @@
 package ece.fr.Controller;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
 
-public class Accueil extends Application {
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
+public class FXMLDocumentController {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
+    @FXML
+    private Label LAfilmroom;
+
+    @FXML
+    private Button BUback;
+
+    @FXML
+    private Label LApriceregularInput;
+
+    @FXML
+    private Button BUnext;
+
+    @FXML
+    private Label LAtotalplaceoutput;
+
+    @FXML
+    private Label LApricechildrenInput;
+
+    @FXML
+    private ImageView IMfilm2;
+
+    @FXML
+    private Label LAprice;
+
+    @FXML
+    private ImageView IMfilm3;
+
+    @FXML
+    private ImageView IMfilm1;
+
+    @FXML
+    private Label LApricestandardInput11;
+
+    @FXML
+    private Button BUaddchidren;
+
+    @FXML
+    private Label LAfilmtypeInput;
+
+    @FXML
+    private Label LAfilmRoomInput;
+
+    @FXML
+    private Label LAstandard;
+
+    @FXML
+    private Label LAprice1;
+
+    @FXML
+    private Label LAfilmdescription;
+
+    @FXML
+    private Button BUbuy;
+
+    @FXML
+    private Label LAprice2;
+
+    @FXML
+    private Label LApricestandardInput1;
+
+    @FXML
+    private Button BUminusregular;
+
+    @FXML
+    private Button BUminuschildren;
+
+    @FXML
+    private Label LApricestandardInput1111;
+
+    @FXML
+    private Button BUminusstandart;
+
+    @FXML
+    private Button BUaddstandart;
+
+    @FXML
+    private Label LAtotalpriceoutput;
+
+    @FXML
+    private Label LAsenior;
+
+    @FXML
+    private Label LAfilmseat;
+
+    @FXML
+    private Label LAchildren;
+
+    @FXML
+    private Button BUaddregular;
+
+    @FXML
+    private Button BUminussenior;
+
+    @FXML
+    private Label LAfilmseatInput;
+
+    @FXML
+    private Label LApricestandardInput;
+
+    @FXML
+    private Label LAfilmdescriptionInput;
+
+    @FXML
+    private Button BUprevious;
+
+    @FXML
+    private Label LApricestandardInput111;
+
+    @FXML
+    private Button BUaddsenior;
+
+    @FXML
+    private Label LAregular;
+
+    @FXML
+    private Label LApriceseniorInput;
+
+    @FXML
+    private Label LAfilmnameInput;
+
+    @FXML
+    void handleButtonActionBUprevious(ActionEvent event) {
 
     }
-    public static void main(String[] args) {
-        launch(args);
+
+    @FXML
+    void 0073ff(ActionEvent event) {
+
     }
+
+    @FXML
+    void handleButtonActionBUnext(ActionEvent event) {
+
+    }
+
+    @FXML
+    void 0073ff(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUminusstandart(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUaddstandart(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUminusregular(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUaddregular(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUminussenior(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUaddsenior(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUminuschildren(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUaddchidren(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUbuy(ActionEvent event) {
+
+    }
+
+    @FXML
+    void handleButtonActionBUback(ActionEvent event) {
+
+    }
+
 }
