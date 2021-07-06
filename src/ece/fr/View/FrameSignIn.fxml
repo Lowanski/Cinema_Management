@@ -24,7 +24,7 @@
                   <Font name="Baskerville" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="BUcreateaccount" alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" depthTest="ENABLE" layoutX="85.0" layoutY="358.0" mnemonicParsing="false" text="Create a new account" textOverrun="CLIP">
+            <Button fx:id="BUcreateaccount" alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" depthTest="ENABLE" layoutX="85.0" layoutY="358.0" mnemonicParsing="false" onAction="#createNewAccount" text="Create a new account" textOverrun="CLIP">
                <font>
                   <Font size="14.0" />
                </font>
@@ -36,6 +36,10 @@
                </font>
             </Button>
             <PasswordField fx:id="TFpasswordinput" layoutX="37.0" layoutY="200.0" prefHeight="26.0" prefWidth="237.0" />
+            <Label fx:id="LAerrormessage" layoutX="42.0" layoutY="242.0" textFill="RED">
+               <font>
+                  <Font name="Baskerville" size="11.0" />
+               </font></Label>
          </children>
          <effect>
             <DropShadow />
