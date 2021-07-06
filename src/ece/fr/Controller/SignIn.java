@@ -1,6 +1,5 @@
 package ece.fr.Controller;
 
-import ece.fr.View.FrameSignIn;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +18,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class SignIn implements Initializable {
@@ -31,6 +31,9 @@ public class SignIn implements Initializable {
 
     @FXML
     private Label LAemail;
+
+    @FXML
+    private Label LAerrormessage;
 
     @FXML
     private TextField TFemailinput;
@@ -57,8 +60,17 @@ public class SignIn implements Initializable {
     private Label LAgrospathe;
 
     @FXML
+    void createNewAccount(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameNewAccount.fxml")));
+        Scene scene = new Scene(home);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
+
+    @FXML
     void signInAsGuest(ActionEvent event) throws IOException {
-        Parent home = FXMLLoader.load(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
+        Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml")));
         Scene scene = new Scene(home);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(scene);
@@ -67,11 +79,21 @@ public class SignIn implements Initializable {
 
     @FXML
     void validateCredential(ActionEvent event) throws IOException {
-        Parent home = FXMLLoader.load(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
-        Scene scene = new Scene(home);
-        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        appStage.setScene(scene);
-        appStage.show();
+
+        //TODO query the database to have the mail and password
+
+        String uEmail = "test@test.fr";
+        String uPassword = "test";
+
+        if (TFemailinput.getText().equals(uEmail) && TFpasswordinput.getText().equals(uPassword)){
+            Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml")));
+            Scene scene = new Scene(home);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }else{
+            LAerrormessage.setText("ERROR : Bad email or password");
+        }
     }
 
     @FXML
