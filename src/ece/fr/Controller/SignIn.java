@@ -1,12 +1,27 @@
 package ece.fr.Controller;
 
+import ece.fr.View.FrameSignIn;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
-public class SignIn {
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SignIn implements Initializable {
 
     @FXML
     private Button BUquit;
@@ -41,4 +56,38 @@ public class SignIn {
     @FXML
     private Label LAgrospathe;
 
+    @FXML
+    void signInAsGuest(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
+        Scene scene = new Scene(home);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
+
+    @FXML
+    void validateCredential(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
+        Scene scene = new Scene(home);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
+    }
+
+    @FXML
+    void quitApplication(ActionEvent event) {
+        System.exit(0);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        FileInputStream inputstream = null;
+        try {
+            inputstream = new FileInputStream("/Users/lowansteinmetz/Documents/Informatique/Cinema_Management/Ressources/undraw_movie_night_fldd.png");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Image cinema = new Image(inputstream);
+        IVimageaccueil.setImage(cinema);
+    }
 }
