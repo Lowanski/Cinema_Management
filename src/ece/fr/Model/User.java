@@ -1,5 +1,9 @@
 package ece.fr.Model;
 
 public class User {
-    protected String Name;
+    protected int userID;
+
+    public User(int uID) {
+        userID=uID;
+    }
 }

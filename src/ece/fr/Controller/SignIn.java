@@ -105,7 +105,7 @@ public class SignIn implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         FileInputStream inputstream = null;
         try {
-            inputstream = new FileInputStream("/Users/lowansteinmetz/Documents/Informatique/Cinema_Management/Ressources/undraw_movie_night_fldd.png");
+            inputstream = new FileInputStream("Ressources/undraw_movie_night_fldd.png");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
