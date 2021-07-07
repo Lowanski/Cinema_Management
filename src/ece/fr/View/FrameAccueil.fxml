@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.image.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" opacity="0.7" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenebuilderproject.FXMLDocumentController">
+<AnchorPane id="AnchorPane" opacity="0.7" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Accueil">
     <children>
         <Button fx:id="BUprevious" contentDisplay="RIGHT" graphicTextGap="1.0" layoutX="20.0" layoutY="22.0" onAction="#handleButtonActionBUprevious" opacity="0.7" prefHeight="276.0" prefWidth="106.0" text="&lt;" textFill="#0073ff">
             <cursor>

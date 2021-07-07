@@ -1,12 +1,17 @@
 package ece.fr.Controller;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-public class FXMLDocumentController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Accueil implements Initializable {
 
     @FXML
     private Label LAfilmroom;
@@ -133,20 +138,13 @@ public class FXMLDocumentController {
 
     }
 
-    @FXML
-    void 0073ff(ActionEvent event) {
 
-    }
 
     @FXML
     void handleButtonActionBUnext(ActionEvent event) {
 
     }
 
-    @FXML
-    void 0073ff(ActionEvent event) {
-
-    }
 
     @FXML
     void handleButtonActionBUminusstandart(ActionEvent event) {
@@ -198,4 +196,8 @@ public class FXMLDocumentController {
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }
