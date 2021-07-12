@@ -1,5 +1,7 @@
 package ece.fr.Controller;
 
+import ece.fr.Controller.Database.DatabaseConn;
+import ece.fr.Model.AuthentificatedUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -78,22 +82,23 @@ public class SignIn implements Initializable {
     }
 
     @FXML
-    void validateCredential(ActionEvent event) throws IOException {
+    void validateCredential(ActionEvent event) throws IOException, SQLException {
 
-        //TODO query the database to have the mail and password
+        DatabaseConn db = new DatabaseConn();
+        ArrayList<AuthentificatedUser> listUser;
+        listUser = db.getUser();
 
-        String uEmail = "test@test.fr";
-        String uPassword = "test";
-
-        if (TFemailinput.getText().equals(uEmail) && TFpasswordinput.getText().equals(uPassword)){
-            Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml")));
-            Scene scene = new Scene(home);
-            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
-        }else{
-            LAerrormessage.setText("ERROR : Bad email or password");
+        for (AuthentificatedUser user:listUser) {
+            if (TFemailinput.getText().equals(user.getEmail()) && TFpasswordinput.getText().equals(user.getPassword())){
+                Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml")));
+                Scene scene = new Scene(home);
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
+                break;
+            }
         }
+        LAerrormessage.setText("ERROR : Bad email or password");
     }
 
     @FXML

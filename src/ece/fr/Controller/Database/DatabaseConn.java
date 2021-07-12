@@ -1,7 +1,6 @@
 package ece.fr.Controller.Database;
 
 import ece.fr.Model.AuthentificatedUser;
-import ece.fr.Model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -48,10 +47,6 @@ public class DatabaseConn {
         int rs = stmt.executeUpdate("INSERT INTO `User` (`UserID`, `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
         conn.close();
     }
-
-    /*
-    * TODO create methods
-    */
 
     /*
      * TODO update methods
