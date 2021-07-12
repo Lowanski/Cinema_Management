@@ -6,8 +6,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -134,6 +137,12 @@ public class Accueil implements Initializable {
     private Label LAfilmnameInput;
 
     @FXML
+    private Label LAusername;
+
+    @FXML
+    private ImageView IVuserlogo;
+
+    @FXML
     void handleButtonActionBUprevious(ActionEvent event) {
 
     }
@@ -198,6 +207,15 @@ public class Accueil implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        FileInputStream inputstream = null;
+        try {
+            inputstream = new FileInputStream("Ressources/userLogo/guest.png");
 
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        assert inputstream != null;
+        Image logo = new Image(inputstream);
+        IVuserlogo.setImage(logo);
     }
 }

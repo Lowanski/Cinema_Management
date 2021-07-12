@@ -244,7 +244,7 @@
                 <Font name="Modern No. 20" size="30.0" />
             </font>
         </Button>
-      <Label fx:id="LAusername" layoutX="80.0" layoutY="32.0" text="Label" />
+      <Label fx:id="LAusername" layoutX="80.0" layoutY="32.0" text="Guest" />
       <ImageView fx:id="IVuserlogo" fitHeight="51.0" fitWidth="51.0" layoutX="20.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
         <Button fx:id="BUprevious" contentDisplay="RIGHT" graphicTextGap="1.0" layoutX="20.0" layoutY="86.0" onAction="#handleButtonActionBUprevious" opacity="0.7" prefHeight="276.0" prefWidth="106.0" text="&lt;" textFill="#0073ff">
             <cursor>
