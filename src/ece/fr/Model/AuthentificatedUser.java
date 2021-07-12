@@ -17,4 +17,28 @@ public class AuthentificatedUser extends User{
         this.password=password;
         this.type=type;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

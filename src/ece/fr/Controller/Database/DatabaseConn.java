@@ -44,7 +44,8 @@ public class DatabaseConn {
     public void createUser(String firstName,String name, int age, String email, String password, int type) throws SQLException {
         conn = createConnection();
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("INSERT INTO `User` (`UserID`, `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
+        System.out.println("INSERT INTO `User` (`UserID`, `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
+        int rs = stmt.executeUpdate("INSERT INTO `User` (`UserID`, `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
         conn.close();
     }
 
