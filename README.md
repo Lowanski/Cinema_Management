@@ -5,7 +5,9 @@ The goal of the project is to create a Cinema management application.
 ## The features included in the project
 * User authentification
 * User creation with a formular
-* Access to the application as a Guest
+* Access the application as a Guest
+* Access the application as an Authenticated User
+* Access the employee application as an Employee 
 
 ## Bonus
 
