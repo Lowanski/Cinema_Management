@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -29,6 +26,15 @@ import java.util.ResourceBundle;
 public class NewAccount implements Initializable {
     @FXML
     private ImageView IMpetitlogod;
+
+    @FXML
+    private ToggleGroup gender;
+
+    @FXML
+    private RadioButton RBman;
+
+    @FXML
+    private RadioButton RBwomen;
 
     @FXML
     private TextField TFfirstname;
@@ -88,9 +94,15 @@ public class NewAccount implements Initializable {
         if (isValide>0){
             LAerror.setText("Email, Firstname, Name already used or blank textfield");
         }else {
+            String gender;
+            if (RBman.isSelected()){
+                gender="M";
+            }else {
+                gender="W";
+            }
             if (TFpassword.getText().equals(TFcheckpassword.getText())){
                 if(2021 - TFage.getValue().getYear() < 18){
-                    db.createUser(TFfirstname.getText(),TFname.getText(),2021 - TFage.getValue().getYear(),TFemail.getText(),TFpassword.getText(), 1);
+                    db.createUser(gender,TFfirstname.getText(),TFname.getText(),2021 - TFage.getValue().getYear(),TFemail.getText(),TFpassword.getText(), 1);
 
                     Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameSignIn.fxml")));
                     Scene scene = new Scene(home);
@@ -99,7 +111,7 @@ public class NewAccount implements Initializable {
                     appStage.show();
 
                 }else if(2021-TFage.getValue().getYear() > 60){
-                    db.createUser(TFfirstname.getText(),TFname.getText(),2021 - TFage.getValue().getYear(),TFemail.getText(),TFpassword.getText(), 3);
+                    db.createUser(gender,TFfirstname.getText(),TFname.getText(),2021 - TFage.getValue().getYear(),TFemail.getText(),TFpassword.getText(), 3);
 
                     Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameSignIn.fxml")));
                     Scene scene = new Scene(home);
@@ -108,7 +120,7 @@ public class NewAccount implements Initializable {
                     appStage.show();
 
                 }else {
-                    db.createUser(TFfirstname.getText(),TFname.getText(),2021 - TFage.getValue().getYear(),TFemail.getText(),TFpassword.getText(), 2);
+                    db.createUser(gender,TFfirstname.getText(),TFname.getText(),2021 - TFage.getValue().getYear(),TFemail.getText(),TFpassword.getText(), 2);
 
                     Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameSignIn.fxml")));
                     Scene scene = new Scene(home);
