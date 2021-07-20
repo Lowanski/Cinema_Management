@@ -1,6 +1,7 @@
 package ece.fr.Controller;
 
 
+import ece.fr.Model.AuthentificatedUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Accueil implements Initializable {
+    AuthentificatedUser user;
 
     @FXML
     private Label LAfilmroom;
@@ -148,7 +150,6 @@ public class Accueil implements Initializable {
     }
 
 
-
     @FXML
     void handleButtonActionBUnext(ActionEvent event) {
 
@@ -217,5 +218,13 @@ public class Accueil implements Initializable {
         assert inputstream != null;
         Image logo = new Image(inputstream);
         IVuserlogo.setImage(logo);
+    }
+
+    @FXML
+    public void transferUser(AuthentificatedUser user) {
+        System.out.println("Hello");
+        this.user=user;
+        System.out.println("I am "+ user.getFirstName() + " " + user.getName());
+
     }
 }
