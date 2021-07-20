@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" opacity="0.7" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Accueil">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #779EB6#779EB6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Accueil">
     <children>
-        <Button fx:id="BUprevious" contentDisplay="RIGHT" graphicTextGap="1.0" layoutX="20.0" layoutY="22.0" onAction="#handleButtonActionBUprevious" opacity="0.7" prefHeight="276.0" prefWidth="106.0" text="&lt;" textFill="#0073ff">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <font>
-                <Font name="Modern No. 20" size="64.0" />
-            </font></Button>
-        <Button fx:id="BUnext" contentDisplay="RIGHT" graphicTextGap="1.0" layoutX="870.0" layoutY="22.0" onAction="#handleButtonActionBUnext" opacity="0.7" prefHeight="276.0" prefWidth="106.0" text="&gt;" textFill="#0073ff">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-            <font>
-                <Font name="Modern No. 20" size="64.0" />
-            </font>
-        </Button>
-        <ImageView fx:id="IMfilm1" fitHeight="276.0" fitWidth="200.0" layoutX="61.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="IMfilm2" fitHeight="276.0" fitWidth="200.0" layoutX="400.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView fx:id="IMfilm3" fitHeight="276.0" fitWidth="200.0" layoutX="729.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="IMfilm1" fitHeight="276.0" fitWidth="200.0" layoutX="61.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="IMfilm2" fitHeight="276.0" fitWidth="200.0" layoutX="400.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="IMfilm3" fitHeight="276.0" fitWidth="200.0" layoutX="729.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true" />
         <Label fx:id="LAfilmnameInput" layoutX="14.0" layoutY="370.0" prefHeight="42.0" prefWidth="232.0" text="Film Name">
             <font>
                 <Font name="Baskerville Old Face" size="35.0" />
@@ -253,6 +242,23 @@
             </cursor>
             <font>
                 <Font name="Modern No. 20" size="30.0" />
+            </font>
+        </Button>
+      <Label fx:id="LAusername" layoutX="80.0" layoutY="32.0" text="Guest" />
+      <ImageView fx:id="IVuserlogo" fitHeight="51.0" fitWidth="51.0" layoutX="20.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
+        <Button fx:id="BUprevious" contentDisplay="RIGHT" graphicTextGap="1.0" layoutX="20.0" layoutY="86.0" onAction="#handleButtonActionBUprevious" opacity="0.7" prefHeight="276.0" prefWidth="106.0" text="&lt;" textFill="#0073ff">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Modern No. 20" size="64.0" />
+            </font></Button>
+        <Button fx:id="BUnext" contentDisplay="RIGHT" graphicTextGap="1.0" layoutX="870.0" layoutY="86.0" onAction="#handleButtonActionBUnext" opacity="0.7" prefHeight="276.0" prefWidth="106.0" text="&gt;" textFill="#0073ff">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <font>
+                <Font name="Modern No. 20" size="64.0" />
             </font>
         </Button>
     </children>

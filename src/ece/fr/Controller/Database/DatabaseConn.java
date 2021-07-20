@@ -34,17 +34,16 @@ public class DatabaseConn {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * from User");
         while (rs.next())
-            listUser.add(new AuthentificatedUser(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),rs.getString(5),rs.getString(6),rs.getInt(7)));
+            listUser.add(new AuthentificatedUser(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getString(6),rs.getString(7),rs.getInt(8)));
 
         conn.close();
         return listUser;
     }
 
-    public void createUser(String firstName,String name, int age, String email, String password, int type) throws SQLException {
+    public void createUser(String gender, String firstName,String name, int age, String email, String password, int type) throws SQLException {
         conn = createConnection();
         Statement stmt = conn.createStatement();
-        System.out.println("INSERT INTO `User` (`UserID`, `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
-        int rs = stmt.executeUpdate("INSERT INTO `User` (`UserID`, `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
+        int rs = stmt.executeUpdate("INSERT INTO `User` (`UserID`,`Gender` , `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ gender +"', '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
         conn.close();
     }
 

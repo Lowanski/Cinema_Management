@@ -1,6 +1,7 @@
 package ece.fr.Controller;
 
 
+import ece.fr.Model.AuthentificatedUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,15 +11,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Accueil implements Initializable {
+    AuthentificatedUser user;
 
     @FXML
     private Label LAfilmroom;
@@ -141,6 +146,12 @@ public class Accueil implements Initializable {
     private Label LAfilmnameInput;
 
     @FXML
+    private Label LAusername;
+
+    @FXML
+    private ImageView IVuserlogo;
+
+    @FXML
     void handleButtonActionBUprevious(ActionEvent event) {
 
     }
@@ -210,6 +221,23 @@ public class Accueil implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        FileInputStream inputstream = null;
+        try {
+            inputstream = new FileInputStream("Ressources/userLogo/guest.png");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        assert inputstream != null;
+        Image logo = new Image(inputstream);
+        IVuserlogo.setImage(logo);
+    }
+
+    @FXML
+    public void transferUser(AuthentificatedUser user) {
+        System.out.println("Hello");
+        this.user=user;
+        System.out.println("I am "+ user.getFirstName() + " " + user.getName());
 
     }
 }
