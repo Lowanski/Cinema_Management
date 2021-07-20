@@ -1,6 +1,7 @@
 package ece.fr.Controller.Database;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
@@ -621,60 +622,7 @@ public class FrameAdmin {
     @FXML
     private Button BUaddsession;
 
-    @FXML
-    void 1f93ff2c(ActionEvent event) {
 
-    }
-
-    @FXML
-    void 376189(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 376189(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 376189(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 376189(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9aff2f(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9aff2f(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9aff2f(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9aff2f(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9aff2f(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9aff2f(ActionEvent event) {
-
-    }
 
     @FXML
     void ActioncurrentpermovieBUnext(ActionEvent event) {
@@ -696,10 +644,6 @@ public class FrameAdmin {
 
     }
 
-    @FXML
-    void 00c21c21(ActionEvent event) {
-
-    }
 
     @FXML
     void TFaddmoviedescreptioninput(ActionEvent event) {

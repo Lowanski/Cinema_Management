@@ -755,11 +755,6 @@
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="LAcashregularinput4" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
                                                 <Label fx:id="LAdol54" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Bookman Old Style" size="18.0" />

@@ -490,108 +490,43 @@ public class Admin {
 
     @FXML
     private Label LAcashchildreninput1;
-
-    /*@FXML
-    void 1f93f
-
-    f2c(ActionEvent event) {
+    @FXML
+    void ActionBUaddmovie(ActionEvent event) {
 
     }
 
     @FXML
-    void 376189(
-    ActionEvent event)
-
-    {
+    void ActionBUaddnext(ActionEvent event) {
 
     }
 
     @FXML
-    void 376189(
-    ActionEvent event)
-
-    {
+    void ActionBUaddprevious(ActionEvent event) {
 
     }
 
     @FXML
-    void 376189(
-    ActionEvent event)
-
-    {
+    void ActionBUaddsession(ActionEvent event) {
 
     }
 
     @FXML
-    void 376189(
-    ActionEvent event)
-
-    {
+    void ActionBUdeletemovie(ActionEvent event) {
 
     }
 
     @FXML
-    void 1f9
-
-    aff2f(ActionEvent event) {
+    void ActioncurentpermovieBUprevious(ActionEvent event) {
 
     }
 
     @FXML
-    void 1f9
-
-    aff2f(ActionEvent event) {
+    void ActioncurrentpermovieBUnext(ActionEvent event) {
 
     }
 
     @FXML
-    void 1f9
-
-    aff2f(ActionEvent event) {
+    void TFaddmoviedescreptioninput(ActionEvent event) {
 
     }
-
-    @FXML
-    void 1f9
-
-    aff2f(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9
-
-    aff2f(ActionEvent event) {
-
-    }
-
-    @FXML
-    void 1f9
-
-    aff2f(ActionEvent event) {
-
-    }
-*/
-    @FXML
-    void Bunext(ActionEvent event) {
-
-    }
-
-    @FXML
-    void BUprevious(ActionEvent event) {
-
-    }
-
-    @FXML
-    void c3000021(ActionEvent event) {
-
-    }
-/*
-    @FXML
-    void 00
-
-    c21c21(ActionEvent event) {
-
-    }
-*/
 }
