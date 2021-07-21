@@ -43,4 +43,6 @@ public class AuthentificatedUser extends User{
     public String getPassword() {
         return password;
     }
+
+    public String getGender() { return gender; }
 }
