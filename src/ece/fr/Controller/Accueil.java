@@ -77,7 +77,7 @@ public class Accueil implements Initializable {
     private Label LAfilmdescription;
 
     @FXML
-    private Button BUbuy;
+    private Button BUbook;
 
     @FXML
     private Label LAprice2;
@@ -205,8 +205,12 @@ public class Accueil implements Initializable {
     }
 
     @FXML
-    void handleButtonActionBUbuy(ActionEvent event) {
-
+    void handleButtonActionBUbook(ActionEvent event) throws IOException {
+        Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml")));
+        Scene scene = new Scene(home);
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(scene);
+        appStage.show();
     }
 
     @FXML
@@ -231,13 +235,79 @@ public class Accueil implements Initializable {
         assert inputstream != null;
         Image logo = new Image(inputstream);
         IVuserlogo.setImage(logo);
+        LAusername.setText("Guest");
     }
 
     @FXML
     public void transferUser(AuthentificatedUser user) {
-        System.out.println("Hello");
-        this.user=user;
-        System.out.println("I am "+ user.getFirstName() + " " + user.getName());
+        FileInputStream inputstream = null;
+        if (user.getType() == 1 && user.getGender().equals("M")){
+            try {
+                inputstream = new FileInputStream("Ressources/userLogo/youngBoy.png");
 
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            IVuserlogo.setImage(logo);
+        }
+        else if (user.getType() == 1 && user.getGender().equals("W")){
+            try {
+                inputstream = new FileInputStream("Ressources/userLogo/youngGirl.png");
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            IVuserlogo.setImage(logo);
+        }
+        else if (user.getType() == 2 && user.getGender().equals("M")){
+            try {
+                inputstream = new FileInputStream("Ressources/userLogo/boy.png");
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            IVuserlogo.setImage(logo);
+        }
+        else if (user.getType() == 2 && user.getGender().equals("W")){
+            try {
+                inputstream = new FileInputStream("Ressources/userLogo/gril.png");
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            IVuserlogo.setImage(logo);
+        }
+        else if (user.getType() == 3 && user.getGender().equals("M")){
+            try {
+                inputstream = new FileInputStream("Ressources/userLogo/oldBoy.png");
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            IVuserlogo.setImage(logo);
+        }
+        else if (user.getType() == 3 && user.getGender().equals("W")){
+            try {
+                inputstream = new FileInputStream("Ressources/userLogo/oldGirl.png");
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            IVuserlogo.setImage(logo);
+        }
+        assert user != null;
+        LAusername.setText(user.getFirstName() + " " + user.getName());
     }
 }
