@@ -1,9 +1,11 @@
 package ece.fr.Controller.Database;
 
 import ece.fr.Model.AuthentificatedUser;
+import ece.fr.Model.Film;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DatabaseConn {
     Connection conn = null;
@@ -13,9 +15,11 @@ public class DatabaseConn {
         try
         {
             // db parameters
-            String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
+            //String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
+            String url       = "jdbc:mysql://localhost:3306/cinemadb";
             String user      = "root";
-            String password  = "root";
+            // String password  = "root";
+            String password  = "admin";
 
             // create a connection to the database
             conn = DriverManager.getConnection(url, user, password);
@@ -39,11 +43,28 @@ public class DatabaseConn {
         conn.close();
         return listUser;
     }
+    public ArrayList getFilm() throws SQLException {
+        ArrayList<Film> listMovies = new ArrayList<>();
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from film");
+        while (rs.next())
+            listMovies.add(new Film(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(7), rs.getInt(5),rs.getInt(6),rs.getInt(8),rs.getDate(9)));
+
+        conn.close();
+        return listMovies;
+    }
 
     public void createUser(String gender, String firstName,String name, int age, String email, String password, int type) throws SQLException {
         conn = createConnection();
         Statement stmt = conn.createStatement();
         int rs = stmt.executeUpdate("INSERT INTO `User` (`UserID`,`Gender` , `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ gender +"', '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
+        conn.close();
+    }
+    public void createFilm(String name, String gender, String description, int priceChildren, int priceGuest, int priceRegular, int priceSenior, Date releaseDate)throws SQLException {
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("INSERT INTO `film`(`FilmID`, `Name`, `Gender`, `Description`, `PriceGuest`, `PriceRegular`, `PriceChildren`, `PriceSenior`, `ReleaseDate`) VALUES (NULL,'"+ name +"', '"+ gender +"', '"+ description +"', '"+ priceGuest +"', '"+ priceRegular +"', '"+ priceChildren +"', '"+ priceSenior +"', '"+releaseDate +"')");
         conn.close();
     }
 

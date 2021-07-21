@@ -1,10 +1,19 @@
 package ece.fr.Controller;
 
+import ece.fr.Controller.Database.DatabaseConn;
+import ece.fr.Model.AuthentificatedUser;
+import ece.fr.Model.Film;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Admin {
 
@@ -477,6 +486,9 @@ public class Admin {
     private Label LAdol33;
 
     @FXML
+    private DatePicker DPreleasedate;
+
+    @FXML
     private Label LAtiketsoldeseniorinput4;
 
     @FXML
@@ -491,10 +503,31 @@ public class Admin {
     @FXML
     private Label LAcashchildreninput1;
     @FXML
-    void ActionBUaddmovie(ActionEvent event) {
+    private TextField TFaddmovienameinput;
+    @FXML
+    private TextField TFaddmoviegenreinput;
+    @FXML
+    private TextField TFaddmoviedescreptioninput;
+    @FXML
+    void ActionBUaddmovie(ActionEvent event) throws SQLException, IOException {
+        DatabaseConn db = new DatabaseConn();
+        ArrayList<Film> listMovies;
+        listMovies = db.getFilm();
+        int isValide = 0;
+        for (Film movie : listMovies) {
+            if (TFaddmovienameinput.getText().equals(movie.getName())) {
+                isValide = 1;
+            }
+        }
+        if (isValide == 1){
 
+        }
+        else {
+            //A object FILM is created and after add to the data base
+            Film newFilm = new Film (isValide ,TFaddmovienameinput.getText(),TFaddmoviegenreinput.getText(),TFaddmoviedescreptioninput.getText(), Date.valueOf(DPreleasedate.getValue()));
+            db.createFilm(newFilm.getName(), newFilm.getGender(), newFilm.getDescription(), newFilm.getPriceChildren(), newFilm.getPriceGuest(), newFilm.getPriceRegular(), newFilm.getPriceSenior(), newFilm.getDate());
+        }
     }
-
     @FXML
     void ActionBUaddnext(ActionEvent event) {
 

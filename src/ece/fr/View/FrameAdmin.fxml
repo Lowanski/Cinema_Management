@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Admin">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Admin">
    <children>
       <TabPane layoutY="1.0" prefHeight="700.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -966,7 +966,7 @@
                         </Label>
                         <TextField fx:id="TFaddmovienameinput" layoutX="372.0" layoutY="79.0" prefHeight="25.0" prefWidth="217.0" promptText="Movie name" />
                         <TextField fx:id="TFaddmoviegenreinput" layoutX="371.0" layoutY="125.0" prefHeight="25.0" prefWidth="221.0" promptText="Movie genre" />
-                        <TextField layoutX="371.0" layoutY="175.0" onAction="#TFaddmoviedescreptioninput" prefHeight="25.0" prefWidth="562.0" promptText="Movie description" />
+                        <TextField fx:id="TFaddmoviedescreptioninput" layoutX="371.0" layoutY="175.0" prefHeight="25.0" prefWidth="562.0" promptText="Movie description" />
                         <ImageView fx:id="IVaddlist2" fitHeight="255.0" fitWidth="200.0" layoutX="543.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="IVaddlist1" fitHeight="255.0" fitWidth="200.0" layoutX="334.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="IVaddlist3" fitHeight="255.0" fitWidth="200.0" layoutX="755.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
@@ -974,6 +974,7 @@
                         <Button fx:id="BUaddnext" layoutX="907.0" layoutY="254.0" mnemonicParsing="false" onAction="#ActionBUaddnext" prefHeight="257.0" prefWidth="52.0" text="&gt;" />
                         <Label fx:id="LAselectedimage" layoutX="579.0" layoutY="543.0" text="Selected image" />
                         <Button fx:id="BUaddmovie" layoutX="565.0" layoutY="579.0" mnemonicParsing="false" onAction="#ActionBUaddmovie" prefHeight="50.0" prefWidth="189.0" text="Add movie" />
+                        <DatePicker fx:id="DPreleasedate" layoutX="641.0" layoutY="79.0" promptText="Realese Date" />
                      </children></AnchorPane>
             </content>
           </Tab>
