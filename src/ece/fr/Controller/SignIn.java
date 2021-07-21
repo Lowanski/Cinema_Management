@@ -89,8 +89,18 @@ public class SignIn implements Initializable {
         listUser = db.getUser();
 
         for (AuthentificatedUser user:listUser) {
-            if (TFemailinput.getText().equals(user.getEmail()) && TFpasswordinput.getText().equals(user.getPassword())){
-                Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml")));
+            if (TFemailinput.getText().equals(user.getEmail()) && TFpasswordinput.getText().equals(user.getPassword()) && user.getType() == 5){
+                Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameAdmin.fxml")));
+                Scene scene = new Scene(home);
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
+                break;
+            }else if(TFemailinput.getText().equals(user.getEmail()) && TFpasswordinput.getText().equals(user.getPassword())){
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
+                Parent home = loader.load();
+                Accueil accueilController = loader.getController();
+                accueilController.transferUser(user);
                 Scene scene = new Scene(home);
                 Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 appStage.setScene(scene);

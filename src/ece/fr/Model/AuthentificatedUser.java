@@ -1,6 +1,7 @@
 package ece.fr.Model;
 
 public class AuthentificatedUser extends User{
+    protected String gender;
     protected String firstName;
     protected String name;
     protected int age;
@@ -8,8 +9,9 @@ public class AuthentificatedUser extends User{
     protected String password;
     protected int type;
 
-    public AuthentificatedUser(int uID, String fN, String name, int age, String email, String password, int type){
+    public AuthentificatedUser( int uID, String gender,String fN, String name, int age, String email, String password, int type){
         super(uID);
+        this.gender = gender;
         firstName=fN;
         this.name=name;
         this.age=age;
