@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-background-color: #779EB6#779EB6;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Payment">
+   <children>
+      <Label layoutX="448.0" layoutY="41.0" text="Payment">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Pane layoutX="500.0" layoutY="140.0" prefHeight="439.0" prefWidth="446.0" style="-fx-background-color: #4797C8#4797C8;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="173.0" layoutY="28.0" text="bank details">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="177.0" text="Card ID" />
+            <Label layoutX="48.0" layoutY="88.0" text="Credit card holder" />
+            <Label layoutX="48.0" layoutY="261.0" text="Security code" />
+            <Button fx:id="BUvalidate" layoutX="191.0" layoutY="375.0" mnemonicParsing="false" onAction="#handleButtonActionBUvalidate" text="Validate" />
+            <TextField layoutX="43.0" layoutY="126.0" prefHeight="26.0" prefWidth="271.0" />
+            <TextField layoutX="43.0" layoutY="207.0" prefHeight="26.0" prefWidth="271.0" />
+            <Spinner editable="true" layoutX="43.0" layoutY="300.0" />
+            <ImageView fx:id="IWcard" fitHeight="61.0" fitWidth="100.0" layoutX="314.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane layoutX="70.0" layoutY="140.0" prefHeight="439.0" prefWidth="319.0" style="-fx-background-color: #b8b8b8#a5a5a5;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="119.0" layoutY="25.0" text="Summary">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="373.0" text="Total Price : " textFill="#26b505">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="170.0" layoutY="375.0" text="25 $" />
+            <Label layoutX="47.0" layoutY="88.0" text="Standart" />
+            <Label layoutX="47.0" layoutY="153.0" text="Children" />
+            <Label layoutX="47.0" layoutY="222.0" text="Senior" />
+            <Label layoutX="47.0" layoutY="288.0" text="Guest" />
+         </children>
+      </Pane>
+      <Label fx:id="LAtransac" layoutX="299.0" layoutY="624.0" prefHeight="34.0" prefWidth="403.0" textFill="#019c20">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
