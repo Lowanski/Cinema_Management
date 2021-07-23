@@ -1,6 +1,7 @@
 package ece.fr.Controller;
 
 import ece.fr.Model.AuthentificatedUser;
+import ece.fr.Model.Reservation;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +23,8 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Booking implements Initializable {
-    AuthentificatedUser user;
+    private AuthentificatedUser user;
+    private Reservation reservation;
 
     @FXML
     private ImageView IWfilm;
@@ -51,11 +53,17 @@ public class Booking implements Initializable {
     public void transferUser(AuthentificatedUser user) {
         this.user = user;
     }
+    public void transferReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
 
     @FXML
     void handleButtonActionBUbuy(ActionEvent event) throws IOException {
         if(user == null){
-            Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FramePayment.fxml")));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FramePayment.fxml"));
+            Parent home = loader.load();
+            Payment paymentController = loader.getController();
+            paymentController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
@@ -65,6 +73,7 @@ public class Booking implements Initializable {
             Parent home = loader.load();
             Payment paymentController = loader.getController();
             paymentController.transferUser(user);
+            paymentController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
@@ -76,4 +85,6 @@ public class Booking implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+
 }

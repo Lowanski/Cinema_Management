@@ -1,6 +1,7 @@
 package ece.fr.Controller;
 
 import ece.fr.Model.AuthentificatedUser;
+import ece.fr.Model.Reservation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,7 +21,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 
 public class Payment implements Initializable {
-    AuthentificatedUser user;
+    private AuthentificatedUser user;
+    private Reservation reservation;
 
     @FXML
     private Button BUvalidate;
@@ -56,6 +58,10 @@ public class Payment implements Initializable {
         this.user = user;
     }
 
+    public void transferReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         FileInputStream inputstream = null;
@@ -67,4 +73,6 @@ public class Payment implements Initializable {
         Image bank = new Image(inputstream);
         IWcard.setImage(bank);
     }
+
+
 }

@@ -2,6 +2,7 @@ package ece.fr.Controller;
 
 
 import ece.fr.Model.AuthentificatedUser;
+import ece.fr.Model.Reservation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,7 +24,8 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Accueil implements Initializable {
-    AuthentificatedUser user;
+    private AuthentificatedUser user;
+    private Reservation reservation;
 
     @FXML
     private Label LAfilmroom;
@@ -206,7 +208,10 @@ public class Accueil implements Initializable {
     @FXML
     void handleButtonActionBUbook(ActionEvent event) throws IOException {
         if(user == null){
-            Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml")));
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml"));
+            Parent home = loader.load();
+            Booking bookingController = loader.getController();
+            bookingController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
@@ -216,6 +221,7 @@ public class Accueil implements Initializable {
             Parent home = loader.load();
             Booking bookingController = loader.getController();
             bookingController.transferUser(user);
+            bookingController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
