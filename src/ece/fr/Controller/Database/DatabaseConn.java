@@ -49,10 +49,19 @@ public class DatabaseConn {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * from film");
         while (rs.next())
-            listMovies.add(new Film(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(7), rs.getInt(5),rs.getInt(6),rs.getInt(8),rs.getDate(9)));
+            listMovies.add(new Film(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(7), rs.getInt(5),rs.getInt(6),rs.getInt(8),rs.getDate(9),rs.getString(10)));
 
         conn.close();
         return listMovies;
+    }
+    public ArrayList getImage() throws SQLException {
+        ArrayList<String> listImage = new ArrayList<>();
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from image");
+        while (rs.next())
+            listImage.add(rs.getString(2));
+        return listImage;
     }
 
     public void createUser(String gender, String firstName,String name, int age, String email, String password, int type) throws SQLException {
@@ -61,10 +70,10 @@ public class DatabaseConn {
         int rs = stmt.executeUpdate("INSERT INTO `User` (`UserID`,`Gender` , `FirstName`, `LastName`, `Age`, `Email`, `Password`, `Type`) VALUES (NULL, '"+ gender +"', '"+ firstName +"', '"+ name +"', '"+ age +"', '"+ email +"', '"+ password +"', '"+ type +"')");
         conn.close();
     }
-    public void createFilm(String name, String gender, String description, int priceChildren, int priceGuest, int priceRegular, int priceSenior, Date releaseDate)throws SQLException {
+    public void createFilm(String name, String gender, String description, int priceChildren, int priceGuest, int priceRegular, int priceSenior, Date releaseDate, String image)throws SQLException {
         conn = createConnection();
         Statement stmt = conn.createStatement();
-        int rs = stmt.executeUpdate("INSERT INTO `film`(`FilmID`, `Name`, `Gender`, `Description`, `PriceGuest`, `PriceRegular`, `PriceChildren`, `PriceSenior`, `ReleaseDate`) VALUES (NULL,'"+ name +"', '"+ gender +"', '"+ description +"', '"+ priceGuest +"', '"+ priceRegular +"', '"+ priceChildren +"', '"+ priceSenior +"', '"+releaseDate +"')");
+        int rs = stmt.executeUpdate("INSERT INTO `film`(`FilmID`, `Name`, `Gender`, `Description`, `PriceGuest`, `PriceRegular`, `PriceChildren`, `PriceSenior`, `ReleaseDate`,`PosterPath`) VALUES (NULL,'"+ name +"', '"+ gender +"', '"+ description +"', '"+ priceGuest +"', '"+ priceRegular +"', '"+ priceChildren +"', '"+ priceSenior +"', '"+releaseDate +"', '"+image +"')");
         conn.close();
     }
 

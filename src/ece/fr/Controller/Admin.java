@@ -9,14 +9,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.net.URL;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class Admin {
-
+private int imageconvoyerbell=1;
     @FXML
     private Label LAdol21;
 
@@ -509,10 +516,18 @@ public class Admin {
     @FXML
     private TextField TFaddmoviedescreptioninput;
     @FXML
+    private ImageView IVaddlist1;
+    @FXML
+    private ImageView IVaddlist2;
+    @FXML
+    private ImageView IVaddlist3;
+    @FXML
     void ActionBUaddmovie(ActionEvent event) throws SQLException, IOException {
         DatabaseConn db = new DatabaseConn();
         ArrayList<Film> listMovies;
         listMovies = db.getFilm();
+        ArrayList<String> listlink;
+        listlink = db.getImage();
         int isValide = 0;
         for (Film movie : listMovies) {
             if (TFaddmovienameinput.getText().equals(movie.getName())) {
@@ -524,17 +539,94 @@ public class Admin {
         }
         else {
             //A object FILM is created and after add to the data base
-            Film newFilm = new Film (isValide ,TFaddmovienameinput.getText(),TFaddmoviegenreinput.getText(),TFaddmoviedescreptioninput.getText(), Date.valueOf(DPreleasedate.getValue()));
-            db.createFilm(newFilm.getName(), newFilm.getGender(), newFilm.getDescription(), newFilm.getPriceChildren(), newFilm.getPriceGuest(), newFilm.getPriceRegular(), newFilm.getPriceSenior(), newFilm.getDate());
+            Film newFilm = new Film (isValide ,TFaddmovienameinput.getText(),TFaddmoviegenreinput.getText(),TFaddmoviedescreptioninput.getText(), Date.valueOf(DPreleasedate.getValue()),listlink.get(imageconvoyerbell));
+            db.createFilm(newFilm.getName(), newFilm.getGender(), newFilm.getDescription(), newFilm.getPriceChildren(), newFilm.getPriceGuest(), newFilm.getPriceRegular(), newFilm.getPriceSenior(), newFilm.getDate(),newFilm.getImage());
         }
     }
     @FXML
-    void ActionBUaddnext(ActionEvent event) {
+    public void imageinitialize () throws SQLException {
+        imageconvoyerbell =1;
+        DatabaseConn db = new DatabaseConn();
+        ArrayList<String> listlink;
+        listlink = db.getImage();
+        ArrayList<Image> listImage = new ArrayList<>();
+        for (int i =0;i<3;i++) {
 
+            FileInputStream inputstream = null;
+            String link = "Ressources/Films/"+listlink.get(i);
+            try {
+                inputstream = new FileInputStream(link);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            listImage.add(logo);
+        }
+        IVaddlist1.setImage(listImage.get(0));
+        IVaddlist2.setImage(listImage.get(1));
+        IVaddlist3.setImage(listImage.get(2));
+
+    }
+    @FXML
+    void ActionBUaddnext(ActionEvent event) throws SQLException {
+        imageconvoyerbell=imageconvoyerbell+1;
+        DatabaseConn db = new DatabaseConn();
+        ArrayList<String> listlink;
+        listlink = db.getImage();
+        if (imageconvoyerbell> listlink.size())
+            imageconvoyerbell=imageconvoyerbell- listlink.size();
+        ArrayList<Image> listImage = new ArrayList<>();
+        for (int i =imageconvoyerbell-1;i<imageconvoyerbell+2;i++) {
+            int u= i;
+            if (u>listlink.size()-1)
+                u=u- listlink.size();
+            FileInputStream inputstream = null;
+            String link = "Ressources/Films/"+listlink.get(u);
+            try {
+                inputstream = new FileInputStream(link);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            listImage.add(logo);
+        }
+        IVaddlist1.setImage(listImage.get(0));
+        IVaddlist2.setImage(listImage.get(1));
+        IVaddlist3.setImage(listImage.get(2));
     }
 
     @FXML
-    void ActionBUaddprevious(ActionEvent event) {
+    void ActionBUaddprevious(ActionEvent event) throws SQLException {
+        imageconvoyerbell=imageconvoyerbell-1;
+        DatabaseConn db = new DatabaseConn();
+        ArrayList<String> listlink;
+        listlink = db.getImage();
+        if (imageconvoyerbell< 1)
+            imageconvoyerbell=imageconvoyerbell+ listlink.size();
+        ArrayList<Image> listImage = new ArrayList<>();
+        for (int i =imageconvoyerbell-1;i<imageconvoyerbell+2;i++) {
+            int u= i;
+            if (u>listlink.size()-1)
+                u=u- listlink.size();
+            FileInputStream inputstream = null;
+            String link = "Ressources/Films/"+listlink.get(u);
+            try {
+                inputstream = new FileInputStream(link);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            listImage.add(logo);
+        }
+        IVaddlist1.setImage(listImage.get(0));
+        IVaddlist2.setImage(listImage.get(1));
+        IVaddlist3.setImage(listImage.get(2));
 
     }
 
