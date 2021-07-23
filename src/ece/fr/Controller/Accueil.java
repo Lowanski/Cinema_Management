@@ -157,7 +157,6 @@ public class Accueil implements Initializable {
     }
 
 
-
     @FXML
     void handleButtonActionBUnext(ActionEvent event) {
 
@@ -206,16 +205,26 @@ public class Accueil implements Initializable {
 
     @FXML
     void handleButtonActionBUbook(ActionEvent event) throws IOException {
-        Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml")));
-        Scene scene = new Scene(home);
-        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        appStage.setScene(scene);
-        appStage.show();
+        if(user == null){
+            Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml")));
+            Scene scene = new Scene(home);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }else {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml"));
+            Parent home = loader.load();
+            Booking bookingController = loader.getController();
+            bookingController.transferUser(user);
+            Scene scene = new Scene(home);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
     }
 
     @FXML
-    void handleButtonActionBUback(ActionEvent event) throws IOException
-    {
+    void handleButtonActionBUback(ActionEvent event) throws IOException {
         Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameSignIn.fxml")));
         Scene scene = new Scene(home);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -241,7 +250,8 @@ public class Accueil implements Initializable {
     @FXML
     public void transferUser(AuthentificatedUser user) {
         FileInputStream inputstream = null;
-        if (user.getType() == 1 && user.getGender().equals("M")){
+        this.user = user;
+        if (user.getType() == 1 && user.getGender().equals("M")) {
             try {
                 inputstream = new FileInputStream("Ressources/userLogo/youngBoy.png");
 
@@ -251,8 +261,7 @@ public class Accueil implements Initializable {
             assert inputstream != null;
             Image logo = new Image(inputstream);
             IVuserlogo.setImage(logo);
-        }
-        else if (user.getType() == 1 && user.getGender().equals("W")){
+        } else if (user.getType() == 1 && user.getGender().equals("W")) {
             try {
                 inputstream = new FileInputStream("Ressources/userLogo/youngGirl.png");
 
@@ -262,8 +271,7 @@ public class Accueil implements Initializable {
             assert inputstream != null;
             Image logo = new Image(inputstream);
             IVuserlogo.setImage(logo);
-        }
-        else if (user.getType() == 2 && user.getGender().equals("M")){
+        } else if (user.getType() == 2 && user.getGender().equals("M")) {
             try {
                 inputstream = new FileInputStream("Ressources/userLogo/boy.png");
 
@@ -273,8 +281,7 @@ public class Accueil implements Initializable {
             assert inputstream != null;
             Image logo = new Image(inputstream);
             IVuserlogo.setImage(logo);
-        }
-        else if (user.getType() == 2 && user.getGender().equals("W")){
+        } else if (user.getType() == 2 && user.getGender().equals("W")) {
             try {
                 inputstream = new FileInputStream("Ressources/userLogo/gril.png");
 
@@ -284,8 +291,7 @@ public class Accueil implements Initializable {
             assert inputstream != null;
             Image logo = new Image(inputstream);
             IVuserlogo.setImage(logo);
-        }
-        else if (user.getType() == 3 && user.getGender().equals("M")){
+        } else if (user.getType() == 3 && user.getGender().equals("M")) {
             try {
                 inputstream = new FileInputStream("Ressources/userLogo/oldBoy.png");
 
@@ -295,8 +301,7 @@ public class Accueil implements Initializable {
             assert inputstream != null;
             Image logo = new Image(inputstream);
             IVuserlogo.setImage(logo);
-        }
-        else if (user.getType() == 3 && user.getGender().equals("W")){
+        } else if (user.getType() == 3 && user.getGender().equals("W")) {
             try {
                 inputstream = new FileInputStream("Ressources/userLogo/oldGirl.png");
 

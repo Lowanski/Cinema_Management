@@ -1,12 +1,17 @@
 package ece.fr.Controller;
 
+import ece.fr.Model.AuthentificatedUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,9 +20,19 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 
 public class Payment implements Initializable {
+    AuthentificatedUser user;
 
     @FXML
     private Button BUvalidate;
+
+    @FXML
+    private TextField TFcardname;
+
+    @FXML
+    private TextField TFcardnumber;
+
+    @FXML
+    private TextField TFcodesecu;
 
     @FXML
     private ImageView IWcard;
@@ -27,7 +42,18 @@ public class Payment implements Initializable {
 
     @FXML
     void handleButtonActionBUvalidate(ActionEvent event) throws InterruptedException {
-        LAtransac.setText("Transaction done, good movie !");
+        if (TFcardname.getLength() == 0 || TFcardnumber.getLength() == 0 || TFcodesecu.getLength() != 3)  {
+            LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.INDIANRED)));
+            LAtransac.setText("Please enter Credit Card credential");
+        } else {
+            LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.GREEN)));
+            LAtransac.setText("Transaction done, good movie !");
+        }
+    }
+
+    @FXML
+    public void transferUser(AuthentificatedUser user) {
+        this.user = user;
     }
 
     @Override
