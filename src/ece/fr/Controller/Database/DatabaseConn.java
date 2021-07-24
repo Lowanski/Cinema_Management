@@ -47,9 +47,9 @@ public class DatabaseConn {
         ArrayList<Film> listMovies = new ArrayList<>();
         conn = createConnection();
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * from Film");
+        ResultSet rs = stmt.executeQuery("SELECT * from Film LEFT JOIN image ON Film.IDimage = image.IDimage");
         while (rs.next())
-            listMovies.add(new Film(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(7), rs.getInt(5),rs.getInt(6),rs.getInt(8),rs.getDate(9),rs.getString(10)));
+            listMovies.add(new Film(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(7), rs.getInt(5),rs.getInt(6),rs.getInt(8),rs.getDate(9),rs.getString(12)));
 
         conn.close();
         return listMovies;
@@ -73,7 +73,7 @@ public class DatabaseConn {
     public void createFilm(String name, String gender, String description, int priceChildren, int priceGuest, int priceRegular, int priceSenior, Date releaseDate, String image)throws SQLException {
         conn = createConnection();
         Statement stmt = conn.createStatement();
-        int rs = stmt.executeUpdate("INSERT INTO `film`(`FilmID`, `Name`, `Gender`, `Description`, `PriceGuest`, `PriceRegular`, `PriceChildren`, `PriceSenior`, `ReleaseDate`,`PosterPath`) VALUES (NULL,'"+ name +"', '"+ gender +"', '"+ description +"', '"+ priceGuest +"', '"+ priceRegular +"', '"+ priceChildren +"', '"+ priceSenior +"', '"+releaseDate +"', '"+image +"')");
+        int rs = stmt.executeUpdate("INSERT INTO `film`(`FilmID`, `Name`, `Gender`, `Description`, `PriceGuest`, `PriceRegular`, `PriceChildren`, `PriceSenior`, `ReleaseDate`,`IDimage`) VALUES (NULL,'"+ name +"', '"+ gender +"', '"+ description +"', '"+ priceGuest +"', '"+ priceRegular +"', '"+ priceChildren +"', '"+ priceSenior +"', '"+releaseDate +"', '"+image +"')");
         conn.close();
     }
 

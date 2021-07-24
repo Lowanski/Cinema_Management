@@ -540,7 +540,7 @@ private int imageconvoyerbell=1;
         else {
             //A object FILM is created and after add to the data base
             Film newFilm = new Film (isValide ,TFaddmovienameinput.getText(),TFaddmoviegenreinput.getText(),TFaddmoviedescreptioninput.getText(), Date.valueOf(DPreleasedate.getValue()),listlink.get(imageconvoyerbell));
-            db.createFilm(newFilm.getName(), newFilm.getGender(), newFilm.getDescription(), newFilm.getPriceChildren(), newFilm.getPriceGuest(), newFilm.getPriceRegular(), newFilm.getPriceSenior(), newFilm.getDate(),newFilm.getImage());
+            db.createFilm(newFilm.getName(), newFilm.getGender(), newFilm.getDescription(), newFilm.getPriceChildren(), newFilm.getPriceGuest(), newFilm.getPriceRegular(), newFilm.getPriceSenior(), newFilm.getDate(),Integer.toString(imageconvoyerbell+1));
         }
     }
     @FXML

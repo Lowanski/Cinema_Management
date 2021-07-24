@@ -332,9 +332,6 @@ public class Accueil implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         DatabaseConn db = new DatabaseConn();
         FileInputStream inputstream = null;
-        FileInputStream inputstreamFilm1 = null;
-        FileInputStream inputstreamFilm2 = null;
-        FileInputStream inputstreamFilm3 = null;
         reservation = new Reservation(0, null, null, null, 0, 0, 0, 0);
         try {
             listFilms = db.getFilm();

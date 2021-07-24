@@ -45,8 +45,24 @@ public class Booking implements Initializable {
     private Button BUback;
 
     @FXML
-    void handleButtonActionBUback(ActionEvent event) {
-
+    void handleButtonActionBUback(ActionEvent event) throws IOException {
+        if(user == null){
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
+            Parent home = loader.load();
+            Scene scene = new Scene(home);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }else {
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
+            Parent home = loader.load();
+            Accueil accueilController = loader.getController();
+            accueilController.transferUser(user);
+            Scene scene = new Scene(home);
+            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            appStage.setScene(scene);
+            appStage.show();
+        }
     }
 
     @FXML
