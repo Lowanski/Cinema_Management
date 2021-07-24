@@ -4,6 +4,7 @@ import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Film;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,11 +16,11 @@ public class DatabaseConn {
         try
         {
             // db parameters
-            String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
-            //String url       = "jdbc:mysql://localhost:3306/cinemadb";
+            //String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
+            String url       = "jdbc:mysql://localhost:3306/cinemadb";
             String user      = "root";
-            String password  = "root";
-            //String password  = "admin";
+            //String password  = "root";
+            String password  = "admin";
 
             // create a connection to the database
             conn = DriverManager.getConnection(url, user, password);
@@ -75,6 +76,11 @@ public class DatabaseConn {
         Statement stmt = conn.createStatement();
         int rs = stmt.executeUpdate("INSERT INTO `film`(`FilmID`, `Name`, `Gender`, `Description`, `PriceGuest`, `PriceRegular`, `PriceChildren`, `PriceSenior`, `ReleaseDate`,`IDimage`) VALUES (NULL,'"+ name +"', '"+ gender +"', '"+ description +"', '"+ priceGuest +"', '"+ priceRegular +"', '"+ priceChildren +"', '"+ priceSenior +"', '"+releaseDate +"', '"+image +"')");
         conn.close();
+    }
+    public void createSession (int place, Timestamp time,int room,int filmID) throws SQLException {
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("INSERT INTO `session` (`SessionID`,`LeftPlace` , `Schedule`, `Room`, `FilmID`) VALUES (NULL, '"+ place +"', '"+ time +"', '"+ room +"', '"+ filmID +"')");
     }
 
     /*

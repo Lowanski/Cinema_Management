@@ -5,10 +5,7 @@ import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Film;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -17,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.net.URL;
 import java.util.Objects;
@@ -496,6 +494,9 @@ private int imageconvoyerbell=1;
     private DatePicker DPreleasedate;
 
     @FXML
+    private DatePicker DPaddsessioninput;
+
+    @FXML
     private Label LAtiketsoldeseniorinput4;
 
     @FXML
@@ -516,11 +517,17 @@ private int imageconvoyerbell=1;
     @FXML
     private TextField TFaddmoviedescreptioninput;
     @FXML
+    private TextField TFaddsessiontimeinput;
+    @FXML
+    private TextField TFaddsessionroominput;
+    @FXML
     private ImageView IVaddlist1;
     @FXML
     private ImageView IVaddlist2;
     @FXML
     private ImageView IVaddlist3;
+    @FXML
+    private ChoiceBox CBmanagesessionselectmovie;
     @FXML
     void ActionBUaddmovie(ActionEvent event) throws SQLException, IOException {
         DatabaseConn db = new DatabaseConn();
@@ -568,6 +575,32 @@ private int imageconvoyerbell=1;
         IVaddlist2.setImage(listImage.get(1));
         IVaddlist3.setImage(listImage.get(2));
 
+    }
+    @FXML
+    public void movieinitialize () throws SQLException {
+        /*imageconvoyerbell =1;
+        DatabaseConn db = new DatabaseConn();
+        ArrayList<String> listlink;
+        listlink = db.getImage();
+        ArrayList<Image> listImage = new ArrayList<>();
+        for (int i =0;i<3;i++) {
+
+            FileInputStream inputstream = null;
+            String link = "Ressources/Films/"+listlink.get(i);
+            try {
+                inputstream = new FileInputStream(link);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            assert inputstream != null;
+            Image logo = new Image(inputstream);
+            listImage.add(logo);
+        }
+        IVaddlist1.setImage(listImage.get(0));
+        IVaddlist2.setImage(listImage.get(1));
+        IVaddlist3.setImage(listImage.get(2));
+        */
     }
     @FXML
     void ActionBUaddnext(ActionEvent event) throws SQLException {
@@ -631,7 +664,23 @@ private int imageconvoyerbell=1;
     }
 
     @FXML
-    void ActionBUaddsession(ActionEvent event) {
+    void ActionBUaddsession(ActionEvent event) throws SQLException {
+        Date date = Date.valueOf(DPaddsessioninput.getValue());
+        String time = new String(date.toString()+" "+TFaddsessiontimeinput.getText());
+        System.out.println(time);
+        DatabaseConn db = new DatabaseConn();
+        int isValide = 0;
+
+
+        if (isValide == 1){
+
+        }
+        else {
+
+            db.createSession(80, Timestamp.valueOf(time),Integer.valueOf(TFaddsessionroominput.getText()),1);
+        }
+
+
 
     }
 
