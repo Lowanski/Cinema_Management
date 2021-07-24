@@ -13,10 +13,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -45,6 +47,15 @@ public class Booking implements Initializable {
     private Button BUback;
 
     @FXML
+    private Label LAtotticketbooked;
+
+    @FXML
+    private Label LAtotprice;
+
+    @FXML
+    private Label LAuser;
+
+    @FXML
     void handleButtonActionBUback(ActionEvent event) throws IOException {
         if(user == null){
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
@@ -71,6 +82,21 @@ public class Booking implements Initializable {
     }
     public void transferReservation(Reservation reservation) {
         this.reservation = reservation;
+        LAtotticketbooked.setText(Integer.toString(reservation.getNumberChildren() + reservation.getNumberSenior() + reservation.getNumberStandard() + reservation.getNumberGuest()));
+        LAtotprice.setText(reservation.getTotPrice()+" $");
+        if (user != null)
+            LAuser.setText(user.getFirstName() + " " + user.getName());
+        else
+            LAuser.setText("Guest user");
+        LAfilm.setText(reservation.getFilm().getName());
+        FileInputStream inputstream = null;
+        try {
+            inputstream = new FileInputStream(reservation.getFilm().getImage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Image filmImage = new Image(inputstream);
+        IWfilm.setImage(filmImage);
     }
 
     @FXML

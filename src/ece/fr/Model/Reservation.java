@@ -6,17 +6,15 @@ public class Reservation {
     int totPrice;
     Film film;
     Date date;
-    User user;
     int numberChildren;
     int numberStandard;
     int numberSenior;
     int numberGuest;
 
-    public Reservation(int totPrice, Film film, Date date, User user, int numberChildren, int numberStandard, int numberSenior, int numberGuest) {
+    public Reservation(int totPrice, Film film, Date date, int numberChildren, int numberStandard, int numberSenior, int numberGuest) {
         this.totPrice = totPrice;
         this.film = film;
         this.date = date;
-        this.user = user;
         this.numberChildren = numberChildren;
         this.numberStandard = numberStandard;
         this.numberSenior = numberSenior;
@@ -51,10 +49,6 @@ public class Reservation {
         return totPrice;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public void setDate(Date date) {
         this.date = date;
     }
@@ -83,7 +77,4 @@ public class Reservation {
         this.totPrice = totPrice;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 }

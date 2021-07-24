@@ -5,6 +5,7 @@ import ece.fr.Controller.Database.DatabaseConn;
 import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Film;
 import ece.fr.Model.Reservation;
+import ece.fr.Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -261,7 +262,7 @@ public class Accueil implements Initializable {
 
     @FXML
     void handleButtonActionBUaddchidren(ActionEvent event) {
-        reservation.setNumberChildren(reservation.getNumberChildren()+1);
+        reservation.setNumberChildren(reservation.getNumberChildren() + 1);
         setInfo();
     }
 
@@ -271,6 +272,7 @@ public class Accueil implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml"));
             Parent home = loader.load();
             Booking bookingController = loader.getController();
+            reservation.setFilm(listFilms.get(filmSelected));
             bookingController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -281,6 +283,7 @@ public class Accueil implements Initializable {
             Parent home = loader.load();
             Booking bookingController = loader.getController();
             bookingController.transferUser(user);
+            reservation.setFilm(listFilms.get(filmSelected));
             bookingController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -332,7 +335,7 @@ public class Accueil implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         DatabaseConn db = new DatabaseConn();
         FileInputStream inputstream = null;
-        reservation = new Reservation(0, null, null, null, 0, 0, 0, 0);
+        reservation = new Reservation(0, null, null,  0, 0, 0, 0);
         try {
             listFilms = db.getFilm();
             inputstream = new FileInputStream("Ressources/userLogo/guest.png");

@@ -31,11 +31,17 @@
             <DropShadow />
          </effect>
          <children>
-            <Label layoutX="25.0" layoutY="21.0" text="Summary">
+            <Label layoutX="25.0" layoutY="34.0" text="Summary">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
+            <Label layoutX="56.0" layoutY="91.0" text="Total tickets booked :" />
+            <Label layoutX="57.0" layoutY="140.0" text="Total price :" />
+            <Label layoutX="57.0" layoutY="188.0" text="Reserver's identity : " />
+            <Label fx:id="LAtotticketbooked" layoutX="206.0" layoutY="91.0" text="0" />
+            <Label fx:id="LAtotprice" layoutX="153.0" layoutY="141.0" text="0 $" />
+            <Label fx:id="LAuser" layoutX="195.0" layoutY="189.0" text="Boby" />
          </children>
       </Pane>
       <Label layoutX="476.0" layoutY="152.0" text="Day" />

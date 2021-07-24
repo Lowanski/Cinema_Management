@@ -43,6 +43,21 @@ public class Payment implements Initializable {
     private Label LAtransac;
 
     @FXML
+    private Label LAtotprice;
+
+    @FXML
+    private Label LAstandart;
+
+    @FXML
+    private Label LAchildren;
+
+    @FXML
+    private Label LAsenior;
+
+    @FXML
+    private Label LAguest;
+
+    @FXML
     void handleButtonActionBUvalidate(ActionEvent event) throws InterruptedException {
         if (TFcardname.getLength() == 0 || TFcardnumber.getLength() == 0 || TFcodesecu.getLength() != 3)  {
             LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.INDIANRED)));
@@ -60,6 +75,11 @@ public class Payment implements Initializable {
 
     public void transferReservation(Reservation reservation) {
         this.reservation = reservation;
+        LAchildren.setText(reservation.getNumberChildren()*reservation.getFilm().getPriceChildren() + " $");
+        LAguest.setText(reservation.getNumberGuest()*reservation.getFilm().getPriceGuest() + " $");
+        LAsenior.setText(reservation.getNumberSenior()*reservation.getFilm().getPriceSenior() + " $");
+        LAstandart.setText(reservation.getNumberStandard()*reservation.getFilm().getPriceRegular() + " $");
+        LAtotprice.setText(reservation.getTotPrice()+" $");
     }
 
     @Override
