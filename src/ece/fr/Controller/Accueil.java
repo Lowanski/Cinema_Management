@@ -323,7 +323,7 @@ public class Accueil implements Initializable {
     private void setFilmImage() throws FileNotFoundException {
         filmImage = new ArrayList<>();
         for (int i = 0; i < listFilms.size(); i++) {
-            FileInputStream inputStream = new FileInputStream(listFilms.get(i).getPathPoster());
+            FileInputStream inputStream = new FileInputStream(listFilms.get(i).getImage());
             filmImage.add(new Image(inputStream));
         }
     }

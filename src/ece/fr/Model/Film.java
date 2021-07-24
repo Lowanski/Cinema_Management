@@ -20,7 +20,8 @@ public class Film {
         this.name = name;
         this.description = description;
         this.releaseDate = releaseDate;
-        this.image= image;
+        String pathImage = "Ressources/Films/"+image;
+        this.image= pathImage;
         this.priceGuest = 12;
         this.priceChildren = 7;
         this.priceRegular = 10;
@@ -37,8 +38,8 @@ public class Film {
         this.priceChildren = priceChildren;
         this.priceRegular = priceRegular;
         this.priceSenior = priceSenior;
-        this.image = image;
-
+        String pathImage = "Ressources/Films/"+image;
+        this.image= pathImage;
     }
 //Date get
     public Date getReleaseDate() {
