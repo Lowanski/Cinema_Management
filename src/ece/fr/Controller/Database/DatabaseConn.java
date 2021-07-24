@@ -47,9 +47,9 @@ public class DatabaseConn {
         ArrayList<Film> listMovies = new ArrayList<>();
         conn = createConnection();
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * from film");
+        ResultSet rs = stmt.executeQuery("SELECT * from Film");
         while (rs.next())
-            listMovies.add(new Film(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(7), rs.getInt(5),rs.getInt(6),rs.getInt(8),rs.getDate(9)));
+            listMovies.add(new Film(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(7), rs.getInt(5),rs.getInt(6),rs.getInt(8),rs.getDate(9),rs.getString(10)));
 
         conn.close();
         return listMovies;

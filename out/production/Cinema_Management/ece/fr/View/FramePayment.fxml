@@ -58,7 +58,7 @@
             <Label layoutX="47.0" layoutY="288.0" text="Guest" />
          </children>
       </Pane>
-      <Label fx:id="LAtransac" layoutX="299.0" layoutY="624.0" prefHeight="34.0" prefWidth="403.0" textFill="#019c20">
+      <Label fx:id="LAtransac" layoutX="269.0" layoutY="624.0" prefHeight="34.0" prefWidth="469.0" textFill="#019c20">
          <font>
             <Font size="28.0" />
          </font>

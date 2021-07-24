@@ -12,6 +12,7 @@ public class Film {
     private int priceChildren;
     private int priceSenior;
     private Date releaseDate;
+    private String pathPoster;
 //Film Constructor
     public Film(int filmID, String name, String gender, String description, Date releaseDate){
         this.filmID = filmID;
@@ -25,7 +26,7 @@ public class Film {
         this.priceSenior = 9;
 
     }
-    public Film (int filmID,String name,String gender, String description,int priceChildren,int priceGuest,int priceRegular,int priceSenior,Date releaseDate){
+    public Film (int filmID,String name,String gender, String description,int priceChildren,int priceGuest,int priceRegular,int priceSenior,Date releaseDate,String pathPoster){
         this.filmID = filmID;
         this.gender = gender;
         this.name = name;
@@ -35,6 +36,7 @@ public class Film {
         this.priceChildren = priceChildren;
         this.priceRegular = priceRegular;
         this.priceSenior = priceSenior;
+        this.pathPoster = pathPoster;
 
     }
 //Date get
@@ -69,7 +71,10 @@ public class Film {
     public String getName() {
         return name;
     }
+
     public Date getDate () {return releaseDate;}
+
+    public String getPathPoster() { return pathPoster; }
 
     public void setPriceChildren(int priceChildren) {
         this.priceChildren = priceChildren;

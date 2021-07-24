@@ -1,7 +1,9 @@
 package ece.fr.Controller;
 
 
+import ece.fr.Controller.Database.DatabaseConn;
 import ece.fr.Model.AuthentificatedUser;
+import ece.fr.Model.Film;
 import ece.fr.Model.Reservation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,10 +22,15 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Accueil implements Initializable {
+    private ArrayList<Film> listFilms = null;
+    private ArrayList<Image>filmImage = null;
+    private int filmSelected = 1;
     private AuthentificatedUser user;
     private Reservation reservation;
 
@@ -155,59 +162,112 @@ public class Accueil implements Initializable {
 
     @FXML
     void handleButtonActionBUprevious(ActionEvent event) {
+        if (filmSelected == 0){
+            filmSelected=listFilms.size()-1;
+        }else {
+            filmSelected--;
+        }
 
+        if (filmSelected < listFilms.size() - 1 && filmSelected > 0){
+            IMfilm1.setImage(filmImage.get(filmSelected-1));
+            IMfilm2.setImage(filmImage.get(filmSelected));
+            IMfilm3.setImage(filmImage.get(filmSelected+1));
+        }
+        else if (filmSelected == 0){
+            IMfilm1.setImage(filmImage.get(listFilms.size()-1));
+            IMfilm2.setImage(filmImage.get(filmSelected));
+            IMfilm3.setImage(filmImage.get(filmSelected+1));
+        }
+        else if (filmSelected == listFilms.size()-1){
+            IMfilm1.setImage(filmImage.get(filmSelected-1));
+            IMfilm2.setImage(filmImage.get(filmSelected));
+            IMfilm3.setImage(filmImage.get(0));
+        }
+        setInfo();
     }
-
 
     @FXML
     void handleButtonActionBUnext(ActionEvent event) {
+        if (filmSelected == listFilms.size()-1){
+            filmSelected=0;
+        }else {
+            filmSelected++;
+        }
 
+        if (filmSelected < listFilms.size() - 1 && filmSelected > 0){
+            IMfilm1.setImage(filmImage.get(filmSelected-1));
+            IMfilm2.setImage(filmImage.get(filmSelected));
+            IMfilm3.setImage(filmImage.get(filmSelected+1));
+        }
+        else if (filmSelected == 0){
+            IMfilm1.setImage(filmImage.get(listFilms.size()-1));
+            IMfilm2.setImage(filmImage.get(filmSelected));
+            IMfilm3.setImage(filmImage.get(filmSelected+1));
+        }
+        else if (filmSelected == listFilms.size()-1){
+            IMfilm1.setImage(filmImage.get(filmSelected-1));
+            IMfilm2.setImage(filmImage.get(filmSelected));
+            IMfilm3.setImage(filmImage.get(0));
+        }
+        setInfo();
     }
 
 
     @FXML
     void handleButtonActionBUminusstandart(ActionEvent event) {
-
+        if (reservation.getNumberGuest() >= 1)
+            reservation.setNumberGuest(reservation.getNumberGuest()-1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUaddstandart(ActionEvent event) {
-
+        reservation.setNumberGuest(reservation.getNumberGuest()+1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUminusregular(ActionEvent event) {
-
+        if (reservation.getNumberStandard() >= 1)
+            reservation.setNumberStandard(reservation.getNumberStandard()-1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUaddregular(ActionEvent event) {
-
+        reservation.setNumberStandard(reservation.getNumberStandard()+1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUminussenior(ActionEvent event) {
-
+        if (reservation.getNumberSenior() >= 1)
+            reservation.setNumberSenior(reservation.getNumberSenior()-1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUaddsenior(ActionEvent event) {
-
+        reservation.setNumberSenior(reservation.getNumberSenior()+1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUminuschildren(ActionEvent event) {
-
+        if (reservation.getNumberChildren() >= 1)
+            reservation.setNumberChildren(reservation.getNumberChildren()-1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUaddchidren(ActionEvent event) {
-
+        reservation.setNumberChildren(reservation.getNumberChildren()+1);
+        setInfo();
     }
 
     @FXML
     void handleButtonActionBUbook(ActionEvent event) throws IOException {
-        if(user == null){
+        if (user == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml"));
             Parent home = loader.load();
             Booking bookingController = loader.getController();
@@ -216,7 +276,7 @@ public class Accueil implements Initializable {
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
             appStage.show();
-        }else {
+        } else {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml"));
             Parent home = loader.load();
             Booking bookingController = loader.getController();
@@ -238,17 +298,63 @@ public class Accueil implements Initializable {
         appStage.show();
     }
 
+    private void setInfo() {
+        LApricestandardInput.setText(Integer.toString(listFilms.get(filmSelected).getPriceGuest()));
+        LApricechildrenInput.setText(Integer.toString(listFilms.get(filmSelected).getPriceChildren()));
+        LApriceseniorInput.setText(Integer.toString(listFilms.get(filmSelected).getPriceSenior()));
+        LApriceregularInput.setText(Integer.toString(listFilms.get(filmSelected).getPriceRegular()));
+
+        LAfilmnameInput.setText(listFilms.get(filmSelected).getName());
+        LAfilmdescriptionInput.setText(listFilms.get(filmSelected).getDescription());
+        LAfilmtypeInput.setText(listFilms.get(filmSelected).getGender());
+
+        LApricestandardInput1.setText(Integer.toString(reservation.getNumberGuest()));
+        LApricestandardInput11.setText(Integer.toString(reservation.getNumberStandard()));
+        LApricestandardInput111.setText(Integer.toString(reservation.getNumberSenior()));
+        LApricestandardInput1111.setText(Integer.toString(reservation.getNumberChildren()));
+
+        int totalPlace = reservation.getNumberGuest() + reservation.getNumberStandard() + reservation.getNumberSenior() + reservation.getNumberChildren();
+        LAtotalplaceoutput.setText(Integer.toString(totalPlace));
+
+        reservation.setTotPrice((reservation.getNumberGuest() * listFilms.get(filmSelected).getPriceGuest()) + (reservation.getNumberStandard() * listFilms.get(filmSelected).getPriceRegular()) + (reservation.getNumberSenior() * listFilms.get(filmSelected).getPriceSenior()) + (reservation.getNumberChildren() * listFilms.get(filmSelected).getPriceChildren()));
+        LAtotalpriceoutput.setText(Integer.toString(reservation.getTotPrice()));
+    }
+
+    private void setFilmImage() throws FileNotFoundException {
+        filmImage = new ArrayList<>();
+        for (int i = 0; i < listFilms.size(); i++) {
+            FileInputStream inputStream = new FileInputStream(listFilms.get(i).getPathPoster());
+            filmImage.add(new Image(inputStream));
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        DatabaseConn db = new DatabaseConn();
         FileInputStream inputstream = null;
+        FileInputStream inputstreamFilm1 = null;
+        FileInputStream inputstreamFilm2 = null;
+        FileInputStream inputstreamFilm3 = null;
+        reservation = new Reservation(0, null, null, null, 0, 0, 0, 0);
         try {
+            listFilms = db.getFilm();
             inputstream = new FileInputStream("Ressources/userLogo/guest.png");
 
-        } catch (FileNotFoundException e) {
+            setFilmImage();
+
+        } catch (FileNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         assert inputstream != null;
+
         Image logo = new Image(inputstream);
+
+        IMfilm1.setImage(filmImage.get(0));
+        IMfilm2.setImage(filmImage.get(1));
+        IMfilm3.setImage(filmImage.get(2));
+
+        setInfo();
+
         IVuserlogo.setImage(logo);
         LAusername.setText("Guest");
     }
