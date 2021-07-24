@@ -578,30 +578,15 @@ private int imageconvoyerbell=1;
     }
     @FXML
     public void movieinitialize () throws SQLException {
-        /*imageconvoyerbell =1;
         DatabaseConn db = new DatabaseConn();
-        ArrayList<String> listlink;
-        listlink = db.getImage();
-        ArrayList<Image> listImage = new ArrayList<>();
-        for (int i =0;i<3;i++) {
-
-            FileInputStream inputstream = null;
-            String link = "Ressources/Films/"+listlink.get(i);
-            try {
-                inputstream = new FileInputStream(link);
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            assert inputstream != null;
-            Image logo = new Image(inputstream);
-            listImage.add(logo);
+        ArrayList<Film> films;
+        films = db.getFilm();
+        for (int i = 0; i < films.size(); i++) {
+            CBmanagesessionselectmovie.getItems().add(films.get(i));
         }
-        IVaddlist1.setImage(listImage.get(0));
-        IVaddlist2.setImage(listImage.get(1));
-        IVaddlist3.setImage(listImage.get(2));
-        */
+        CBmanagesessionselectmovie.getSelectionModel().select(0);
     }
+
     @FXML
     void ActionBUaddnext(ActionEvent event) throws SQLException {
         imageconvoyerbell=imageconvoyerbell+1;
@@ -667,7 +652,7 @@ private int imageconvoyerbell=1;
     void ActionBUaddsession(ActionEvent event) throws SQLException {
         Date date = Date.valueOf(DPaddsessioninput.getValue());
         String time = new String(date.toString()+" "+TFaddsessiontimeinput.getText());
-        System.out.println(time);
+        //System.out.println(time);
         DatabaseConn db = new DatabaseConn();
         int isValide = 0;
 
@@ -676,8 +661,21 @@ private int imageconvoyerbell=1;
 
         }
         else {
+            Object filmname = CBmanagesessionselectmovie.getValue();
+            int filmID=0;
+            ArrayList<Film> films;
+            films = db.getFilm();
+            for(int i = 0; i < films.size(); i++){
+                //System.out.println(filmname.toString());
+                //System.out.println(films.get(i).getName());
+                if (filmname.toString().equals(films.get(i).getName())) {
+                    filmID = i+1;
 
-            db.createSession(80, Timestamp.valueOf(time),Integer.valueOf(TFaddsessionroominput.getText()),1);
+                }
+            }
+            //System.out.println(filmID);
+
+            db.createSession(80, Timestamp.valueOf(time),Integer.valueOf(TFaddsessionroominput.getText()),filmID);
         }
 
 
