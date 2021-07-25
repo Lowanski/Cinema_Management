@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -119,146 +120,8 @@
                                  <content>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f9aff2f" height="200.0" layoutX="12.0" layoutY="434.0" stroke="BLACK" strokeType="INSIDE" width="381.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f9aff2f" height="200.0" layoutX="15.0" layoutY="225.0" stroke="BLACK" strokeType="INSIDE" width="381.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f9aff2f" height="200.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="381.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f9aff2f" height="200.0" layoutX="450.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="381.0" />
-                                          <Label fx:id="LAmovie2inpout" layoutX="465.0" layoutY="22.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="23.0" />
-                                             </font>
-                                          </Label>
-                                          <GridPane layoutX="465.0" layoutY="51.0" prefHeight="150.0" prefWidth="371.0">
-                                            <columnConstraints>
-                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="115.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="57.0" minWidth="0.0" prefWidth="57.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="14.0" />
-                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="56.0" />
-                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="10.0" prefWidth="45.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="51.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="36.0" />
-                                            </columnConstraints>
-                                            <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                            </rowConstraints>
-                                             <children>
-                                                <Label fx:id="LAticket2" prefHeight="21.0" prefWidth="108.0" text="Ticket sold: ">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldinput2" text="XX" GridPane.columnIndex="1">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeguestinput2" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldechildreninput2" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeseniorinput2" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsolderegularinput2" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAguest2" text="Guest:" textAlignment="RIGHT" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAchildren2" text="Children:" textAlignment="RIGHT" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAsenior2" text="Senior:" textAlignment="RIGHT" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAregular2" text="Regular:" textAlignment="RIGHT" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="TFguestpriceinput2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                <TextField fx:id="TFchildrenpriceinput2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                <TextField fx:id="TFseniorpriceinput2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                <TextField fx:id="TFregularpriceinput2" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                                                <Label fx:id="LAcashguestinput2" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol21" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashchildreninput2" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol22" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashseniorinput2" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol23" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashregularinput2" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol24" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashinput2" text="XX" GridPane.columnIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol20" text="\$" GridPane.columnIndex="6">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAt2" text="\$/T" GridPane.columnIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                          </GridPane>
-                                          <GridPane layoutX="29.0" layoutY="51.0" prefHeight="150.0" prefWidth="371.0">
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f9aff2f" height="200.0" layoutX="300.0" layoutY="230.0" stroke="BLACK" strokeType="INSIDE" width="381.0" />
+                                          <GridPane layoutX="315.0" layoutY="267.0" prefHeight="150.0" prefWidth="371.0">
                                              <children>
                                                 <Label fx:id="LAticket1" prefHeight="21.0" prefWidth="108.0" text="Ticket sold: ">
                                                    <font>
@@ -388,550 +251,13 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                           </GridPane>
-                                          <Label fx:id="LAmovie1inpout" layoutX="29.0" layoutY="22.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
+                                          <Label fx:id="LAmovie1inpout" layoutX="315.0" layoutY="238.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
                                              <font>
                                                 <Font name="Baskerville Old Face" size="23.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="LAmovie3inpout" layoutX="30.0" layoutY="233.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="23.0" />
-                                             </font>
-                                          </Label>
-                                          <GridPane layoutX="30.0" layoutY="262.0" prefHeight="150.0" prefWidth="371.0">
-                                             <children>
-                                                <Label fx:id="LAticket3" prefHeight="21.0" prefWidth="108.0" text="Ticket sold: ">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldinput3" text="XX" GridPane.columnIndex="1">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeguestinput3" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldechildreninput3" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeseniorinput3" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsolderegularinput3" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAguest3" text="Guest:" textAlignment="RIGHT" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAchildren3" text="Children:" textAlignment="RIGHT" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAsenior3" text="Senior:" textAlignment="RIGHT" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAregular3" text="Regular:" textAlignment="RIGHT" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="TFguestpriceinput3" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                <TextField fx:id="TFchildrenpriceinput3" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                <TextField fx:id="TFseniorpriceinput3" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                <TextField fx:id="TFregularpriceinput3" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                                                <Label fx:id="LAcashguestinput3" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol31" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashchildreninput3" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol32" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashseniorinput3" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol33" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashregularinput3" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol34" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashinput3" text="XX" GridPane.columnIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol30" text="\$" GridPane.columnIndex="6">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAt3" text="\$/T" GridPane.columnIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="115.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="57.0" minWidth="0.0" prefWidth="57.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="14.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="56.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="10.0" prefWidth="45.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="51.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="36.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f9aff2f" height="200.0" layoutX="448.0" layoutY="225.0" stroke="BLACK" strokeType="INSIDE" width="381.0" />
-                                          <GridPane layoutX="463.0" layoutY="262.0" prefHeight="150.0" prefWidth="371.0">
-                                             <children>
-                                                <Label fx:id="LAticket4" prefHeight="21.0" prefWidth="108.0" text="Ticket sold: ">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldinput4" text="XX" GridPane.columnIndex="1">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeguestinput4" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldechildreninput4" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeseniorinput4" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsolderegularinput4" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAguest4" text="Guest:" textAlignment="RIGHT" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAchildren4" text="Children:" textAlignment="RIGHT" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAsenior4" text="Senior:" textAlignment="RIGHT" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAregular4" text="Regular:" textAlignment="RIGHT" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="TFguestpriceinput4" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                <TextField fx:id="TFchildrenpriceinput4" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                <TextField fx:id="TFseniorpriceinput4" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                <TextField fx:id="TFregularpriceinput4" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                                                <Label fx:id="LAcashguestinput4" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol41" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashchildreninput4" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol42" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashseniorinput4" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol43" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashregularinput4" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol44" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashinput4" text="XX" GridPane.columnIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol40" text="\$" GridPane.columnIndex="6">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAt4" text="\$/T" GridPane.columnIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="115.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="57.0" minWidth="0.0" prefWidth="57.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="14.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="56.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="10.0" prefWidth="45.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="51.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="36.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                          <Label fx:id="LAmovie4inpout" layoutX="463.0" layoutY="233.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="23.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAmovie5inpout" layoutX="27.0" layoutY="442.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="23.0" />
-                                             </font>
-                                          </Label>
-                                          <GridPane layoutX="27.0" layoutY="471.0" prefHeight="150.0" prefWidth="371.0">
-                                             <children>
-                                                <Label fx:id="LAticket5" prefHeight="21.0" prefWidth="108.0" text="Ticket sold: ">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldinput5" text="XX" GridPane.columnIndex="1">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeguestinput5" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldechildreninput5" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeseniorinput5" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsolderegularinput5" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAguest5" text="Guest:" textAlignment="RIGHT" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAchildren5" text="Children:" textAlignment="RIGHT" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAsenior5" text="Senior:" textAlignment="RIGHT" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAregular5" text="Regular:" textAlignment="RIGHT" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="TFguestpriceinput5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                <TextField fx:id="TFchildrenpriceinput5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                <TextField fx:id="TFseniorpriceinput5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                <TextField fx:id="TFregularpriceinput5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                                                <Label fx:id="LAcashguestinput5" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol51" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashchildreninput5" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol52" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashseniorinput5" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol53" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol54" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashinput5" text="XX" GridPane.columnIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol50" text="\$" GridPane.columnIndex="6">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAt5" text="\$/T" GridPane.columnIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="115.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="57.0" minWidth="0.0" prefWidth="57.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="14.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="56.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="10.0" prefWidth="45.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="51.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="36.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f9aff2f" height="200.0" layoutX="448.0" layoutY="434.0" stroke="BLACK" strokeType="INSIDE" width="381.0" />
-                                          <GridPane layoutX="463.0" layoutY="471.0" prefHeight="150.0" prefWidth="371.0">
-                                             <children>
-                                                <Label fx:id="LAticket6" prefHeight="21.0" prefWidth="108.0" text="Ticket sold: ">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldinput6" text="XX" GridPane.columnIndex="1">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeguestinput6" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldechildreninput6" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeseniorinput6" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsolderegularinput6" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAguest6" text="Guest:" textAlignment="RIGHT" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAchildren6" text="Children:" textAlignment="RIGHT" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAsenior6" text="Senior:" textAlignment="RIGHT" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAregular6" text="Regular:" textAlignment="RIGHT" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="TFguestpriceinput6" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                                <TextField fx:id="TFchildrenpriceinput6" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                                <TextField fx:id="TFseniorpriceinput6" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                                <TextField fx:id="TFregularpriceinput6" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                                                <Label fx:id="LAcashguestinput6" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol61" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashchildreninput6" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol62" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashseniorinput6" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol63" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashregularinput6" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol64" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashinput6" text="XX" GridPane.columnIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol60" text="\$" GridPane.columnIndex="6">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAt6" text="\$/T" GridPane.columnIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="115.0" minWidth="10.0" prefWidth="115.0" />
-                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="57.0" minWidth="0.0" prefWidth="57.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="89.0" minWidth="10.0" prefWidth="14.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="56.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="10.0" prefWidth="45.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.0" minWidth="10.0" prefWidth="51.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="61.0" minWidth="10.0" prefWidth="36.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                          <Label fx:id="LAmovie6inpout" layoutX="463.0" layoutY="442.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="23.0" />
-                                             </font>
-                                          </Label>
-                                          <Button fx:id="BUnext" layoutX="850.0" layoutY="439.0" mnemonicParsing="false" onAction="#ActioncurrentpermovieBUnext" prefHeight="194.0" prefWidth="81.0" text="-&gt; " />
-                                          <Button fx:id="BUprevious" layoutX="850.0" layoutY="225.0" mnemonicParsing="false" onAction="#ActioncurentpermovieBUprevious" prefHeight="200.0" prefWidth="81.0" text="&lt;-" />
+                                          <Button fx:id="BUnext" layoutX="746.0" layoutY="230.0" mnemonicParsing="false" onAction="#ActioncurrentpermovieBUnext" prefHeight="204.0" prefWidth="81.0" text="-&gt; " />
+                                          <Button fx:id="BUprevious" layoutX="164.0" layoutY="230.0" mnemonicParsing="false" onAction="#ActioncurentpermovieBUprevious" prefHeight="200.0" prefWidth="81.0" text="&lt;-" />
                                        </children></AnchorPane>
                                  </content>
                               </Tab>
@@ -967,7 +293,10 @@
                         <TextField fx:id="TFaddmovienameinput" layoutX="372.0" layoutY="79.0" prefHeight="25.0" prefWidth="217.0" promptText="Movie name" />
                         <TextField fx:id="TFaddmoviegenreinput" layoutX="371.0" layoutY="125.0" prefHeight="25.0" prefWidth="221.0" promptText="Movie genre" />
                         <TextField fx:id="TFaddmoviedescreptioninput" layoutX="371.0" layoutY="175.0" prefHeight="25.0" prefWidth="562.0" promptText="Movie description" />
-                        <ImageView fx:id="IVaddlist2" fitHeight="270.0" fitWidth="219.0" layoutX="535.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="IVaddlist2" fitHeight="270.0" fitWidth="219.0" layoutX="535.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+                           <effect>
+                              <DropShadow />
+                           </effect></ImageView>
                         <ImageView fx:id="IVaddlist1" fitHeight="234.0" fitWidth="175.0" layoutX="334.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true" />
                         <ImageView fx:id="IVaddlist3" fitHeight="230.0" fitWidth="179.0" layoutX="776.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
                         <Button fx:id="BUaddprevious" layoutX="321.0" layoutY="276.0" mnemonicParsing="false" onAction="#ActionBUaddprevious" prefHeight="236.0" prefWidth="52.0" text="&lt;" />
@@ -982,45 +311,39 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ChoiceBox fx:id="CBmanagesessionselectmovie" layoutX="230.0" layoutY="14.0" prefWidth="150.0" />
-                        <Label fx:id="LAselectmovie" layoutX="34.0" layoutY="22.0" text="Select a movie" />
-                        <GridPane layoutX="34.0" layoutY="78.0" prefHeight="367.0" prefWidth="933.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="30.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label fx:id="LAmanagesessiondate" text="Date" />
-                              <Label fx:id="LAmanagesessiontime" text="Time" GridPane.columnIndex="1" />
-                              <Label fx:id="LAmanagesessionroom" text="Room" GridPane.columnIndex="2" />
-                              <Label fx:id="LAmanagesessionsolde" text="Ticket Solde" GridPane.columnIndex="3" />
-                           </children>
-                        </GridPane>
+                        <ChoiceBox fx:id="CBmanagesessionselectmovie" layoutX="134.0" layoutY="14.0" onAction="#ActionCBuptadesession" prefWidth="150.0" />
+                        <Label fx:id="LAselectmovie" layoutX="28.0" layoutY="18.0" text="Select a movie" />
                         <Label fx:id="LAaddsession" layoutX="34.0" layoutY="445.0" text="Add session" />
                         <DatePicker fx:id="DPaddsessioninput" layoutX="34.0" layoutY="511.0" prefHeight="51.0" prefWidth="199.0" />
-                        <TextField fx:id="TFaddsessiontimeinput" layoutX="270.0" layoutY="511.0" prefHeight="51.0" prefWidth="173.0" promptText="Time 24h" />
+                        <TextField fx:id="TFaddsessiontimeinput" layoutX="270.0" layoutY="511.0" prefHeight="51.0" prefWidth="173.0" promptText="00:00:00" />
                         <TextField fx:id="TFaddsessionroominput" layoutX="477.0" layoutY="511.0" prefHeight="51.0" prefWidth="155.0" promptText="Room 1234" />
                         <Button fx:id="BUaddsession" layoutX="724.0" layoutY="537.0" mnemonicParsing="false" onAction="#ActionBUaddsession" prefHeight="51.0" prefWidth="242.0" text="Add session" />
+                        <ScrollPane layoutX="14.0" layoutY="56.0" prefHeight="362.0" prefWidth="611.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="TVsession" layoutX="3.0" prefHeight="358.0" prefWidth="604.0">
+                                      <columns>
+                                        <TableColumn fx:id="TVid" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="TCdate" prefWidth="129.0" text="Date" />
+                                          <TableColumn fx:id="TVtime" prefWidth="146.0" text="Time" />
+                                          <TableColumn fx:id="TVroom" prefWidth="112.0" text="Room" />
+                                          <TableColumn fx:id="TVleft" prefWidth="141.0" text="Place Left" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#96050533" height="387.0" layoutX="688.0" layoutY="27.0" pickOnBounds="true" stroke="BLACK" strokeType="INSIDE" width="278.0" />
+                        <Label fx:id="LAselectmovie1" layoutX="751.0" layoutY="45.0" text="Delete a session">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LAselectmovie2" layoutX="713.0" layoutY="152.0" text="Selecte Session ID" />
+                        <Button fx:id="BUdeletesession" layoutX="706.0" layoutY="285.0" mnemonicParsing="false" onAction="#ActionBUdeletesession" prefHeight="51.0" prefWidth="242.0" text="Delete" />
+                        <ChoiceBox fx:id="CBsessiondelete" layoutX="752.0" layoutY="189.0" prefWidth="150.0" />
                      </children></AnchorPane>
                </content>
             </Tab>

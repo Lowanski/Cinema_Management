@@ -2,8 +2,10 @@ package ece.fr.Controller.Database;
 
 import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Film;
+import ece.fr.Model.Session;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,11 +17,11 @@ public class DatabaseConn {
         try
         {
             // db parameters
-            String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
-            //String url       = "jdbc:mysql://localhost:3306/cinemadb";
+            //String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
+            String url       = "jdbc:mysql://localhost:3306/cinemadb";
             String user      = "root";
-            String password  = "root";
-            //String password  = "admin";
+            //String password  = "root";
+            String password  = "admin";
 
             // create a connection to the database
             conn = DriverManager.getConnection(url, user, password);
@@ -64,6 +66,18 @@ public class DatabaseConn {
         return listImage;
     }
 
+    public ArrayList getListSession(int IDmovie) throws SQLException {
+        ArrayList<Session> listSession = new ArrayList<>();
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from `session` WHERE `FilmID` = '" + IDmovie + "';");
+        while (rs.next())
+            listSession.add(new Session(rs.getInt(1),rs.getInt(2),rs.getTimestamp(3),rs.getInt(4),rs.getInt(5)));
+        return listSession;
+    }
+
+
+
     public void createUser(String gender, String firstName,String name, int age, String email, String password, int type) throws SQLException {
         conn = createConnection();
         Statement stmt = conn.createStatement();
@@ -76,6 +90,24 @@ public class DatabaseConn {
         int rs = stmt.executeUpdate("INSERT INTO `film`(`FilmID`, `Name`, `Gender`, `Description`, `PriceGuest`, `PriceRegular`, `PriceChildren`, `PriceSenior`, `ReleaseDate`,`IDimage`) VALUES (NULL,'"+ name +"', '"+ gender +"', '"+ description +"', '"+ priceGuest +"', '"+ priceRegular +"', '"+ priceChildren +"', '"+ priceSenior +"', '"+releaseDate +"', '"+image +"')");
         conn.close();
     }
+    public void createSession (int place, Timestamp time,int room,int filmID) throws SQLException {
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("INSERT INTO `session` (`SessionID`,`LeftPlace` , `Schedule`, `Room`, `FilmID`) VALUES (NULL, '"+ place +"', '"+ time +"', '"+ room +"', '"+ filmID +"')");
+    }
+    public void deleteSession (int sessionID) throws SQLException {
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("DELETE FROM `session` WHERE `SessionID` ='" + sessionID + "';");
+    }
+    public void deleteMovie (int movieID) throws SQLException {
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("DELETE FROM `session` WHERE `FilmID` ='" + movieID + "';");
+        int rs1 = stmt.executeUpdate("DELETE FROM `film` WHERE `FilmID` ='" + movieID + "';");
+
+    }
+
 
     /*
      * TODO update methods

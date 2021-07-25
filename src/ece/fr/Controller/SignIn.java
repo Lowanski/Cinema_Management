@@ -29,6 +29,8 @@ public class SignIn implements Initializable {
 
     @FXML
     private Button BUquit;
+    @FXML
+    private Button BUsavepricechange;
 
     @FXML
     private Label LApassword;
@@ -81,6 +83,7 @@ public class SignIn implements Initializable {
         appStage.show();
     }
 
+
     @FXML
     void validateCredential(ActionEvent event) throws IOException, SQLException {
 
@@ -94,6 +97,8 @@ public class SignIn implements Initializable {
                 Parent home = loader.load();
                 Admin adminController = loader.getController();
                 adminController.imageinitialize();
+                adminController.movieinitialize();
+                adminController.sessioninitialize();
                 Scene scene = new Scene(home);
                 Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 appStage.setScene(scene);

@@ -78,6 +78,9 @@ public class Film {
     public String getImage() {
         return image;
     }
+    public int getID() {
+        return filmID;
+    }
 
     public void setPriceChildren(int priceChildren) {
         this.priceChildren = priceChildren;
@@ -93,5 +96,9 @@ public class Film {
 
     public void setPriceSenior(int priceSenior) {
         this.priceSenior = priceSenior;
+    }
+    @Override
+    public String toString(){ //The ChoiceBOX element use natively the tostring methode to display the name of the object added
+        return name;
     }
 }
