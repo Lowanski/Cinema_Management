@@ -844,7 +844,12 @@ private int imageconvoyerbell=1;
      */
     @FXML
     void ActionCBuptadesession(ActionEvent event) throws SQLException, ParseException {
-        sessioninitialize();
+        if (CBmanagesessionselectmovie.getValue()==null){
+
+        }
+        else {
+            sessioninitialize();
+        }
     }
 
     /**
@@ -961,11 +966,11 @@ private int imageconvoyerbell=1;
         }
         if (TFaddsessionroominput.getText().matches("\\d{1}$")){
             if (Integer.parseInt(TFaddsessionroominput.getText())<5 && Integer.parseInt(TFaddsessionroominput.getText())>0 ){
-                isValide = 1;
-                LAsessionaddAlerte.setText("Room need to be 1,2,3 or 4");
+
             }
             else {
-
+                isValide = 1;
+                LAsessionaddAlerte.setText("Room need to be 1,2,3 or 4");
             }
         }
         else {
@@ -1002,6 +1007,7 @@ private int imageconvoyerbell=1;
             TFaddsessionroominput.clear();
             TFaddsessiontimeinput.clear();
         }
+        movieinitialize();
         sessioninitialize();
 
     }
@@ -1120,6 +1126,7 @@ private int imageconvoyerbell=1;
         }
         else{
             isvalide=1;
+            LApricemovieAlerte.setText("Price must be a number > 0");
         }
         if(isvalide==1){
 
