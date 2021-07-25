@@ -62,9 +62,9 @@
             <Label fx:id="LAguest" layoutX="156.0" layoutY="289.0" text="0 $" />
          </children>
       </Pane>
-      <Label fx:id="LAtransac" layoutX="269.0" layoutY="624.0" prefHeight="34.0" prefWidth="469.0" textFill="#019c20">
+      <Label fx:id="LAtransac" layoutX="70.0" layoutY="614.0" prefHeight="50.0" prefWidth="883.0" textFill="#019c20">
          <font>
-            <Font size="28.0" />
+            <Font size="22.0" />
          </font>
       </Label>
    </children>

@@ -267,7 +267,7 @@ public class Accueil implements Initializable {
     }
 
     @FXML
-    void handleButtonActionBUbook(ActionEvent event) throws IOException {
+    void handleButtonActionBUbook(ActionEvent event) throws IOException, SQLException {
         if (user == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameBooking.fxml"));
             Parent home = loader.load();
@@ -335,7 +335,7 @@ public class Accueil implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         DatabaseConn db = new DatabaseConn();
         FileInputStream inputstream = null;
-        reservation = new Reservation(0, null, null,  0, 0, 0, 0);
+        reservation = new Reservation(0, null, null,null,  0, 0, 0, 0);
         try {
             listFilms = db.getFilm();
             inputstream = new FileInputStream("Ressources/userLogo/guest.png");

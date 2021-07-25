@@ -51,16 +51,20 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="170.0" layoutY="375.0" text="25 $" />
+            <Label fx:id="LAtotprice" layoutX="170.0" layoutY="375.0" text="25 $" />
             <Label layoutX="47.0" layoutY="88.0" text="Standart" />
             <Label layoutX="47.0" layoutY="153.0" text="Children" />
             <Label layoutX="47.0" layoutY="222.0" text="Senior" />
             <Label layoutX="47.0" layoutY="288.0" text="Guest" />
+            <Label fx:id="LAstandart" layoutX="155.0" layoutY="89.0" text="0 $" />
+            <Label fx:id="LAchildren" layoutX="155.0" layoutY="154.0" text="0 $" />
+            <Label fx:id="LAsenior" layoutX="156.0" layoutY="223.0" text="0 $" />
+            <Label fx:id="LAguest" layoutX="156.0" layoutY="289.0" text="0 $" />
          </children>
       </Pane>
-      <Label fx:id="LAtransac" layoutX="269.0" layoutY="624.0" prefHeight="34.0" prefWidth="469.0" textFill="#019c20">
+      <Label fx:id="LAtransac" layoutX="70.0" layoutY="614.0" prefHeight="50.0" prefWidth="883.0" textFill="#019c20">
          <font>
-            <Font size="28.0" />
+            <Font size="22.0" />
          </font>
       </Label>
    </children>

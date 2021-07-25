@@ -1,5 +1,6 @@
 package ece.fr.Controller;
 
+import ece.fr.Controller.Database.DatabaseConn;
 import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Reservation;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.scene.paint.Paint;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
@@ -58,13 +60,18 @@ public class Payment implements Initializable {
     private Label LAguest;
 
     @FXML
-    void handleButtonActionBUvalidate(ActionEvent event) throws InterruptedException {
+    void handleButtonActionBUvalidate(ActionEvent event) throws InterruptedException, SQLException {
+        DatabaseConn db = new DatabaseConn();
         if (TFcardname.getLength() == 0 || TFcardnumber.getLength() == 0 || TFcodesecu.getLength() != 3)  {
             LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.INDIANRED)));
             LAtransac.setText("Please enter Credit Card credential");
         } else {
+            if (user != null)
+                db.createBooking(user.getUserID(),reservation.getSession().getIDsession());
+            else
+                db.createBooking(1,reservation.getSession().getIDsession()); //User 1 is the guest user
             LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.GREEN)));
-            LAtransac.setText("Transaction done, good movie !");
+            LAtransac.setText("Transaction done. You have booked " +reservation.getFilm().getName()+" on "+reservation.getSession().getDate()+" at "+reservation.getSession().getTime()+", good movie !");
         }
     }
 

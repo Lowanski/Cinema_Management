@@ -1,19 +1,23 @@
 package ece.fr.Model;
 
+import javafx.collections.ObservableList;
+
 import java.util.Date;
 
 public class Reservation {
     int totPrice;
     Film film;
+    Session session;
     Date date;
     int numberChildren;
     int numberStandard;
     int numberSenior;
     int numberGuest;
 
-    public Reservation(int totPrice, Film film, Date date, int numberChildren, int numberStandard, int numberSenior, int numberGuest) {
+    public Reservation(int totPrice, Film film,Session session, Date date, int numberChildren, int numberStandard, int numberSenior, int numberGuest) {
         this.totPrice = totPrice;
         this.film = film;
+        this.session = session;
         this.date = date;
         this.numberChildren = numberChildren;
         this.numberStandard = numberStandard;
@@ -49,6 +53,10 @@ public class Reservation {
         return totPrice;
     }
 
+    public Session getSession() {
+        return session;
+    }
+
     public void setDate(Date date) {
         this.date = date;
     }
@@ -76,5 +84,7 @@ public class Reservation {
     public void setTotPrice(int totPrice) {
         this.totPrice = totPrice;
     }
-
+    public void setSession(Session session) {
+        this.session = session;
+    }
 }

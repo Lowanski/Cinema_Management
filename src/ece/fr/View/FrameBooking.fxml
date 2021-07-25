@@ -22,8 +22,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="CBday" layoutX="465.0" layoutY="184.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="CBhour" layoutX="691.0" layoutY="184.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="CBsession" layoutX="515.0" layoutY="200.0" prefHeight="27.0" prefWidth="353.0" />
       <Button fx:id="BUbuy" layoutX="860.0" layoutY="609.0" mnemonicParsing="false" onAction="#handleButtonActionBUbuy" text="Buy" />
       <Button fx:id="BUback" layoutX="84.0" layoutY="610.0" mnemonicParsing="false" onAction="#handleButtonActionBUback" text="Back" />
       <Pane layoutX="426.0" layoutY="294.0" prefHeight="268.0" prefWidth="530.0" style="-fx-background-color: #4797C8#4797C8;">
@@ -44,7 +43,6 @@
             <Label fx:id="LAuser" layoutX="195.0" layoutY="189.0" text="Boby" />
          </children>
       </Pane>
-      <Label layoutX="476.0" layoutY="152.0" text="Day" />
-      <Label layoutX="701.0" layoutY="152.0" text="Hours" />
+      <Label layoutX="515.0" layoutY="168.0" text="Choose a session" />
    </children>
 </AnchorPane>

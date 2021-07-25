@@ -17,7 +17,7 @@ public class Session {
     public Session (int IDsession,int leftPlaces,Timestamp timestamp,int room,int IDfilm){
         this.timestamp=timestamp;
         this.time= timestamp.toString().substring(11);
-        this.date= timestamp.toString().substring(0,9);
+        this.date= timestamp.toString().substring(0,10);
         this.leftPlaces=leftPlaces;
         this.IDfilm=IDfilm;
         this.IDsession=IDsession;

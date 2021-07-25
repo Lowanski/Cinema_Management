@@ -17,4 +17,8 @@ public class User {
     public User(int uID) {
         userID=uID;
     }
+
+    public int getUserID() {
+        return userID;
+    }
 }

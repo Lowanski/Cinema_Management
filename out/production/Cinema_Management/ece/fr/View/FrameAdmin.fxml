@@ -343,7 +343,7 @@
                         </Label>
                         <Label fx:id="LAselectmovie2" layoutX="713.0" layoutY="152.0" text="Selecte Session ID" />
                         <Button fx:id="BUdeletesession" layoutX="706.0" layoutY="285.0" mnemonicParsing="false" onAction="#ActionBUdeletesession" prefHeight="51.0" prefWidth="242.0" text="Delete" />
-                        <ChoiceBox fx:id="CBsessiondelete" layoutX="752.0" layoutY="189.0" onAction="#ActionCBuptadesession" prefWidth="150.0" />
+                        <ChoiceBox fx:id="CBsessiondelete" layoutX="752.0" layoutY="189.0" prefWidth="150.0" />
                      </children></AnchorPane>
                </content>
             </Tab>

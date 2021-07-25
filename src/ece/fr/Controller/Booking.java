@@ -1,7 +1,9 @@
 package ece.fr.Controller;
 
+import ece.fr.Controller.Database.DatabaseConn;
 import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Reservation;
+import ece.fr.Model.Session;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,12 +23,15 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Booking implements Initializable {
     private AuthentificatedUser user;
     private Reservation reservation;
+    private ArrayList<Session> listSession;
 
     @FXML
     private ImageView IWfilm;
@@ -35,10 +40,7 @@ public class Booking implements Initializable {
     private Label LAfilm;
 
     @FXML
-    private ChoiceBox<?> CBday;
-
-    @FXML
-    private ChoiceBox<?> CBhour;
+    private ChoiceBox CBsession;
 
     @FXML
     private Button BUbuy;
@@ -80,7 +82,8 @@ public class Booking implements Initializable {
     public void transferUser(AuthentificatedUser user) {
         this.user = user;
     }
-    public void transferReservation(Reservation reservation) {
+    public void transferReservation(Reservation reservation) throws SQLException {
+        DatabaseConn db = new DatabaseConn();
         this.reservation = reservation;
         LAtotticketbooked.setText(Integer.toString(reservation.getNumberChildren() + reservation.getNumberSenior() + reservation.getNumberStandard() + reservation.getNumberGuest()));
         LAtotprice.setText(reservation.getTotPrice()+" $");
@@ -97,6 +100,14 @@ public class Booking implements Initializable {
         }
         Image filmImage = new Image(inputstream);
         IWfilm.setImage(filmImage);
+        listSession = db.getListSession(reservation.getFilm().getID());
+        CBsession.getItems().clear();
+        if (listSession.size() != 0) {
+            for (Session session: listSession) {
+                CBsession.getItems().add(session.getDate()+" "+session.getTime());
+            }
+
+        }
     }
 
     @FXML
@@ -105,6 +116,11 @@ public class Booking implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FramePayment.fxml"));
             Parent home = loader.load();
             Payment paymentController = loader.getController();
+            for (Session session: listSession) {
+                if (CBsession.getValue().equals(session.getDate() +" "+session.getTime())){
+                    reservation.setSession(session);
+                }
+            }
             paymentController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -115,6 +131,11 @@ public class Booking implements Initializable {
             Parent home = loader.load();
             Payment paymentController = loader.getController();
             paymentController.transferUser(user);
+            for (Session session: listSession) {
+                if (CBsession.getValue().equals(session.getDate() +" "+session.getTime())){
+                    reservation.setSession(session);
+                }
+            }
             paymentController.transferReservation(reservation);
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -125,7 +146,6 @@ public class Booking implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
 
