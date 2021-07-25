@@ -3,6 +3,7 @@ package ece.fr.Controller;
 import ece.fr.Controller.Database.DatabaseConn;
 import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Reservation;
+import ece.fr.Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +20,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
@@ -69,7 +71,10 @@ public class Payment implements Initializable {
             if (user != null)
                 db.createBooking(user.getUserID(),reservation.getSession().getIDsession());
             else
-                db.createBooking(1,reservation.getSession().getIDsession()); //User 1 is the guest user
+                db.createUser(null,"Guest"+db.getUser().size()+1,null,0,null,null,0);
+                ArrayList<User> guestUserList = db.getUser();
+                db.createBooking(guestUserList.get(guestUserList.size()-1).getUserID(),reservation.getSession().getIDsession());
+                db.updateSessionLeftPlace(reservation.getSession().getIDsession(),reservation.getSession().getLeftPlaces()- (reservation.getNumberChildren()+ reservation.getNumberGuest()+ reservation.getNumberSenior()+ reservation.getNumberStandard()));
             LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.GREEN)));
             LAtransac.setText("Transaction done. You have booked " +reservation.getFilm().getName()+" on "+reservation.getSession().getDate()+" at "+reservation.getSession().getTime()+", good movie !");
         }

@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -640,7 +642,7 @@ private int imageconvoyerbell=1;
         TFregularpriceinput1.setText(String.valueOf(films.get(0).getPriceRegular()));
     }
     @FXML
-    public void sessioninitialize () throws SQLException {
+    public void sessioninitialize () throws SQLException, ParseException {
         DatabaseConn db = new DatabaseConn();
         CBsessiondelete.getItems().clear();
         TVsession.getItems().clear();;
@@ -741,15 +743,62 @@ private int imageconvoyerbell=1;
         PCone.setTitle("Session per Film");
 
         PCone.setLegendSide(Side.LEFT);
+
+/** ############################################################# **/
+
+        //Creating the Bar chart
+        SBCone.setTitle("Tickets sold per Film");
+
+        //Prepare XYChart.Series objects by setting data
+        XYChart.Series<String, Number> series1 = new XYChart.Series<>();
+        series1.setName("Tickets");
+
+        if (SBCone.getData().size() == 0){
+            for (Film f: listFilms) {
+                series1.getData().add(new XYChart.Data<>(f.getName(), db.getticketsold(f.getID())));
+            }
+        }
+
+        //Setting the data to bar chart
+        SBCone.getData().addAll(series1);
+
+/** ############################################################# **/
+
+        Map<java.util.Date,Integer> dateSession = new HashMap<>();
+
+        SimpleDateFormat formatter1=new SimpleDateFormat("yyyy-MM-dd");
+
+        for (Session s: listSessionAll) {
+            dateSession.put( formatter1.parse(s.getDate()),0);
+        }
+
+        for (Session s:listSessionAll) {
+            dateSession.computeIfPresent(formatter1.parse(s.getDate()), (k, v) -> v + 1);
+        }
+
+        if (LCone.getData().size() == 0){
+            LCone.setTitle("Session proposed by the cinema since its beginning");
+            //defining a series
+            XYChart.Series series = new XYChart.Series();
+            series.setName("Sessions");
+            //populating the series with data
+            int sum = 0;
+            for (Map.Entry<java.util.Date, Integer> entry : dateSession.entrySet()) {
+                sum = sum + entry.getValue();
+                series.getData().add(new XYChart.Data(entry.getKey().toString(), sum));
+            }
+            LCone.getData().add(series);
+        }
+
     }
 
 
     @FXML
-    void ActionCBuptadesession(ActionEvent event) throws SQLException {
+    void ActionCBuptadesession(ActionEvent event) throws SQLException, ParseException {
         sessioninitialize();
     }
     @FXML
-    void ActionBUdeletesession(ActionEvent event) throws SQLException {
+    void ActionBUdeletesession(ActionEvent event) throws SQLException, ParseException {
         DatabaseConn db = new DatabaseConn();
         int sessionID = 0;
         sessionID = parseInt(CBsessiondelete.getValue().toString());
@@ -819,7 +868,7 @@ private int imageconvoyerbell=1;
     }
 
     @FXML
-    void ActionBUaddsession(ActionEvent event) throws SQLException {
+    void ActionBUaddsession(ActionEvent event) throws SQLException, ParseException {
         Date date = Date.valueOf(DPaddsessioninput.getValue());
         String time = new String(date.toString()+" "+TFaddsessiontimeinput.getText());
         //System.out.println(time);
@@ -852,7 +901,7 @@ private int imageconvoyerbell=1;
     }
 
     @FXML
-    void ActionBUdeletemovie(ActionEvent event) throws SQLException {
+    void ActionBUdeletemovie(ActionEvent event) throws SQLException, ParseException {
         DatabaseConn db = new DatabaseConn();
         Object filmname = CBdeletemovie.getValue();
         int filmID=0;

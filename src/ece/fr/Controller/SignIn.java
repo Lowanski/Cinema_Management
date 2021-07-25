@@ -21,6 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -85,7 +86,7 @@ public class SignIn implements Initializable {
 
 
     @FXML
-    void validateCredential(ActionEvent event) throws IOException, SQLException {
+    void validateCredential(ActionEvent event) throws IOException, SQLException, ParseException {
 
         DatabaseConn db = new DatabaseConn();
         ArrayList<AuthentificatedUser> listUser;

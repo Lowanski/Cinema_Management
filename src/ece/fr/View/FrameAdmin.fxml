@@ -360,7 +360,6 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <PieChart fx:id="PCone" layoutX="56.0" layoutY="28.0" prefHeight="280.0" prefWidth="430.0" />
-                        <PieChart fx:id="PCtow" layoutX="529.0" layoutY="34.0" prefHeight="280.0" prefWidth="430.0" />
                         <StackedBarChart fx:id="SBCone" layoutX="17.0" layoutY="320.0" prefHeight="308.0" prefWidth="468.0">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
@@ -369,7 +368,7 @@
                             <NumberAxis side="LEFT" />
                           </yAxis>
                         </StackedBarChart>
-                        <LineChart fx:id="LCone" layoutX="486.0" layoutY="321.0" prefHeight="308.0" prefWidth="500.0">
+                        <LineChart fx:id="LCone" layoutX="486.0" layoutY="25.0" prefHeight="604.0" prefWidth="500.0">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>

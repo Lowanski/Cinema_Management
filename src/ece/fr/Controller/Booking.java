@@ -58,15 +58,31 @@ public class Booking implements Initializable {
     private Label LAuser;
 
     @FXML
+    private Label LAleftPlaces;
+
+    @FXML
+    private Label LAerror;
+
+
+    @FXML
+    void handleButtonAction(ActionEvent event) {
+        for (Session session : listSession) {
+            if (CBsession.getValue().equals(session.getDate() + " " + session.getTime())) {
+                LAleftPlaces.setText(session.getLeftPlaces() + "");
+            }
+        }
+    }
+
+    @FXML
     void handleButtonActionBUback(ActionEvent event) throws IOException {
-        if(user == null){
+        if (user == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
             Parent home = loader.load();
             Scene scene = new Scene(home);
             Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             appStage.setScene(scene);
             appStage.show();
-        }else {
+        } else {
             FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml"));
             Parent home = loader.load();
             Accueil accueilController = loader.getController();
@@ -82,11 +98,12 @@ public class Booking implements Initializable {
     public void transferUser(AuthentificatedUser user) {
         this.user = user;
     }
+
     public void transferReservation(Reservation reservation) throws SQLException {
         DatabaseConn db = new DatabaseConn();
         this.reservation = reservation;
         LAtotticketbooked.setText(Integer.toString(reservation.getNumberChildren() + reservation.getNumberSenior() + reservation.getNumberStandard() + reservation.getNumberGuest()));
-        LAtotprice.setText(reservation.getTotPrice()+" $");
+        LAtotprice.setText(reservation.getTotPrice() + " $");
         if (user != null)
             LAuser.setText(user.getFirstName() + " " + user.getName());
         else
@@ -103,8 +120,8 @@ public class Booking implements Initializable {
         listSession = db.getListSession(reservation.getFilm().getID());
         CBsession.getItems().clear();
         if (listSession.size() != 0) {
-            for (Session session: listSession) {
-                CBsession.getItems().add(session.getDate()+" "+session.getTime());
+            for (Session session : listSession) {
+                CBsession.getItems().add(session.getDate() + " " + session.getTime());
             }
 
         }
@@ -112,35 +129,39 @@ public class Booking implements Initializable {
 
     @FXML
     void handleButtonActionBUbuy(ActionEvent event) throws IOException {
-        if(user == null){
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FramePayment.fxml"));
-            Parent home = loader.load();
-            Payment paymentController = loader.getController();
-            for (Session session: listSession) {
-                if (CBsession.getValue().equals(session.getDate() +" "+session.getTime())){
-                    reservation.setSession(session);
+        if (Integer.parseInt(LAleftPlaces.getText()) - (reservation.getNumberChildren() + reservation.getNumberGuest() + reservation.getNumberSenior() + reservation.getNumberStandard()) < 0) {
+            LAerror.setText("Impossible to book this session, there are not enough places left");
+        } else {
+            if (user == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FramePayment.fxml"));
+                Parent home = loader.load();
+                Payment paymentController = loader.getController();
+                for (Session session : listSession) {
+                    if (CBsession.getValue().equals(session.getDate() + " " + session.getTime())) {
+                        reservation.setSession(session);
+                    }
                 }
-            }
-            paymentController.transferReservation(reservation);
-            Scene scene = new Scene(home);
-            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
-        }else {
-            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FramePayment.fxml"));
-            Parent home = loader.load();
-            Payment paymentController = loader.getController();
-            paymentController.transferUser(user);
-            for (Session session: listSession) {
-                if (CBsession.getValue().equals(session.getDate() +" "+session.getTime())){
-                    reservation.setSession(session);
+                paymentController.transferReservation(reservation);
+                Scene scene = new Scene(home);
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
+            } else {
+                FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("ece/fr/View/FramePayment.fxml"));
+                Parent home = loader.load();
+                Payment paymentController = loader.getController();
+                paymentController.transferUser(user);
+                for (Session session : listSession) {
+                    if (CBsession.getValue().equals(session.getDate() + " " + session.getTime())) {
+                        reservation.setSession(session);
+                    }
                 }
+                paymentController.transferReservation(reservation);
+                Scene scene = new Scene(home);
+                Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                appStage.setScene(scene);
+                appStage.show();
             }
-            paymentController.transferReservation(reservation);
-            Scene scene = new Scene(home);
-            Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            appStage.setScene(scene);
-            appStage.show();
         }
     }
 
