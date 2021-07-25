@@ -217,17 +217,7 @@
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="LAcashinput1" text="XX" GridPane.columnIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol10" text="\$" GridPane.columnIndex="6">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAt1" text="\$/T" GridPane.columnIndex="3">
+                                                <Label fx:id="LAt1" text="\$/T" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
@@ -251,9 +241,9 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                           </GridPane>
-                                          <Label fx:id="LAmovie1inpout" layoutX="315.0" layoutY="238.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
+                                          <Label fx:id="LAmovie1inpout" layoutX="313.0" layoutY="189.0" prefHeight="21.0" prefWidth="345.0" text="Movie 1">
                                              <font>
-                                                <Font name="Baskerville Old Face" size="23.0" />
+                                                <Font name="System Bold" size="23.0" />
                                              </font>
                                           </Label>
                                           <Button fx:id="BUnext" layoutX="746.0" layoutY="230.0" mnemonicParsing="false" onAction="#ActioncurrentpermovieBUnext" prefHeight="204.0" prefWidth="81.0" text="-&gt; " />

@@ -17,11 +17,11 @@ public class DatabaseConn {
         try
         {
             // db parameters
-            String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
-            //String url       = "jdbc:mysql://localhost:3306/cinemadb";
+            //String url       = "jdbc:mysql://localhost:3306/CinemaDB"; // Enter a database name
+            String url       = "jdbc:mysql://localhost:3306/cinemadb";
             String user      = "root";
-            String password  = "root";
-            //String password  = "admin";
+            //String password  = "root";
+            String password  = "admin";
 
             // create a connection to the database
             conn = DriverManager.getConnection(url, user, password);
@@ -117,6 +117,15 @@ public class DatabaseConn {
         int rs = stmt.executeUpdate("DELETE FROM `session` WHERE `FilmID` ='" + movieID + "';");
         int rs1 = stmt.executeUpdate("DELETE FROM `film` WHERE `FilmID` ='" + movieID + "';");
 
+    }
+    public int getticketsold (int movieID) throws SQLException{
+        int ticketsold=0;
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from `session` WHERE `FilmID` = '" + movieID + "';");
+        while (rs.next())
+            ticketsold=ticketsold+(80-rs.getInt(2));
+        return ticketsold;
     }
 
 

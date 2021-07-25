@@ -217,17 +217,7 @@
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="LAcashinput1" text="XX" GridPane.columnIndex="5">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAdol10" text="\$" GridPane.columnIndex="6">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAt1" text="\$/T" GridPane.columnIndex="3">
+                                                <Label fx:id="LAt1" text="\$/T" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                    <font>
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>

@@ -612,7 +612,12 @@ private int imageconvoyerbell=1;
         }
         CBmanagesessionselectmovie.getSelectionModel().select(0);
         CBdeletemovie.getSelectionModel().select(0);
-
+        LAmovie1inpout.setText(films.get(0).getName());
+        LAtiketsoldinput1.setText(String.valueOf(db.getticketsold(films.get(0).getID())));
+        TFguestpriceinput1.setText(String.valueOf(films.get(0).getPriceGuest()));
+        TFchildrenpriceinput1.setText(String.valueOf(films.get(0).getPriceChildren()));
+        TFseniorpriceinput1.setText(String.valueOf(films.get(0).getPriceSenior()));
+        TFregularpriceinput1.setText(String.valueOf(films.get(0).getPriceRegular()));
     }
     @FXML
     public void sessioninitialize () throws SQLException {
