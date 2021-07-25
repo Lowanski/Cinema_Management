@@ -76,6 +76,16 @@ public class DatabaseConn {
         return listSession;
     }
 
+    public ArrayList getListSessionAll() throws SQLException {
+        ArrayList<Session> listSession = new ArrayList<>();
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from `session`;");
+        while (rs.next())
+            listSession.add(new Session(rs.getInt(1),rs.getInt(2),rs.getTimestamp(3),rs.getInt(4),rs.getInt(5)));
+        return listSession;
+    }
+
 
 
     public void createUser(String gender, String firstName,String name, int age, String email, String password, int type) throws SQLException {
@@ -118,9 +128,4 @@ public class DatabaseConn {
         int rs1 = stmt.executeUpdate("DELETE FROM `film` WHERE `FilmID` ='" + movieID + "';");
 
     }
-
-
-    /*
-     * TODO update methods
-     */
 }

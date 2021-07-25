@@ -43,6 +43,11 @@ public class Session {
     public int getLeftPlaces() {
         return leftPlaces;
     }
+
+    public int getIDfilm() {
+        return IDfilm;
+    }
+
     @Override
     public String toString(){
         return String.valueOf(IDsession);

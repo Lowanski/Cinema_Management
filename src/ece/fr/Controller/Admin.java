@@ -7,6 +7,8 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Side;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
@@ -19,6 +21,10 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.collections.ObservableList;
 
 import static java.lang.Integer.parseInt;
@@ -550,6 +556,18 @@ private int imageconvoyerbell=1;
     private TableColumn<Integer, String> TVleft;
 
     @FXML
+    private PieChart PCone;
+
+    @FXML
+    private PieChart PCtow;
+
+    @FXML
+    private StackedBarChart<String, Number> SBCone;
+
+    @FXML
+    private LineChart<?, ?> LCone;
+
+    @FXML
     void ActionBUaddmovie(ActionEvent event) throws SQLException, IOException {
         DatabaseConn db = new DatabaseConn();
         ArrayList<Film> listMovies;
@@ -687,6 +705,35 @@ private int imageconvoyerbell=1;
         }
         CBsessiondelete.getSelectionModel().select(0);
         TVsession.setPlaceholder(new Label("No sessions to display"));
+
+        ArrayList<Session> listSessionAll = db.getListSessionAll();
+        ArrayList<Film> listFilms= db.getFilm();
+        Map<Integer,Integer> filmsStatInt = new HashMap<>();
+        Map<String,Integer> filmsStat = new HashMap<>();
+
+        for (Film f: listFilms) {
+            filmsStatInt.put(f.getID(),0);
+        }
+        for (Session s:listSessionAll) {
+            filmsStatInt.computeIfPresent(s.getIDfilm(), (k, v) -> v + 1);
+        }
+
+        for (Film f: listFilms) {
+            if (filmsStatInt.containsKey(f.getID())){
+                filmsStat.put(f.getName(),filmsStatInt.get(f.getID()));
+            }
+        }
+
+        if (PCone.getData().size() == 0){
+            for (Map.Entry<String, Integer> entry : filmsStat.entrySet()) {
+                PieChart.Data slice = new PieChart.Data(entry.getKey(), entry.getValue());
+                PCone.getData().add(slice);
+            }
+        }
+
+        PCone.setTitle("Session per Film");
+
+        PCone.setLegendSide(Side.LEFT);
     }
 
 
@@ -831,4 +878,5 @@ private int imageconvoyerbell=1;
     void TFaddmoviedescreptioninput(ActionEvent event) {
 
     }
+
 }
