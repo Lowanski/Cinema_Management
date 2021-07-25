@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * The type Booking.
+ */
 public class Booking implements Initializable {
     private AuthentificatedUser user;
     private Reservation reservation;
@@ -64,6 +67,11 @@ public class Booking implements Initializable {
     private Label LAerror;
 
 
+    /**
+     * Handle button action.
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonAction(ActionEvent event) {
         for (Session session : listSession) {
@@ -73,6 +81,12 @@ public class Booking implements Initializable {
         }
     }
 
+    /**
+     * Handle button action buback. go back to frame acceuil
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void handleButtonActionBUback(ActionEvent event) throws IOException {
         if (user == null) {
@@ -94,11 +108,22 @@ public class Booking implements Initializable {
         }
     }
 
+    /**
+     * Transfer user.
+     *
+     * @param user the user
+     */
     @FXML
     public void transferUser(AuthentificatedUser user) {
         this.user = user;
     }
 
+    /**
+     * Transfer reservation. forward info of a booking
+     *
+     * @param reservation the reservation
+     * @throws SQLException the sql exception
+     */
     public void transferReservation(Reservation reservation) throws SQLException {
         DatabaseConn db = new DatabaseConn();
         this.reservation = reservation;
@@ -127,6 +152,12 @@ public class Booking implements Initializable {
         }
     }
 
+    /**
+     * Handle button action bubuy. check if it is possible to buy and buy a booking
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void handleButtonActionBUbuy(ActionEvent event) throws IOException {
         if (Integer.parseInt(LAleftPlaces.getText()) - (reservation.getNumberChildren() + reservation.getNumberGuest() + reservation.getNumberSenior() + reservation.getNumberStandard()) < 0) {

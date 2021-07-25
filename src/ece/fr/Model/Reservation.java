@@ -8,12 +8,13 @@ import java.util.Date;
  * The type Reservation.
  */
 public class Reservation {
-
-
     /**
      * The Tot price.
      */
     int totPrice;
+    /**
+     * The Film.
+     */
     Film film;
     /**
      * The Session.
@@ -35,6 +36,9 @@ public class Reservation {
      * The Number senior.
      */
     int numberSenior;
+    /**
+     * The Number guest.
+     */
     int numberGuest;
 
     /**

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -26,7 +34,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Admin">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ece.fr.Controller.Admin">
    <children>
       <TabPane layoutY="1.0" prefHeight="700.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -36,103 +44,6 @@
                      <children>
                         <TabPane layoutY="14.0" prefHeight="660.0" prefWidth="1000.0" side="LEFT">
                           <tabs>
-                            <Tab text="Per Room">
-                                 <content>
-                                    <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff2c" height="600.0" layoutX="14.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="828.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#376189" height="206.0" layoutX="34.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="311.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#376189" height="339.0" layoutX="34.0" layoutY="249.0" stroke="BLACK" strokeType="INSIDE" width="311.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#376189" height="339.0" layoutX="419.0" layoutY="31.0" stroke="BLACK" strokeType="INSIDE" width="311.0" />
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#376189" height="155.0" layoutX="355.0" layoutY="433.0" stroke="BLACK" strokeType="INSIDE" width="453.0" />
-                                          <Line endX="25.0" endY="-25.0" fill="BLACK" layoutX="394.0" layoutY="76.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="3.0" />
-                                          <Line endX="25.0" endY="-25.0" fill="BLACK" layoutX="379.0" layoutY="433.0" strokeWidth="3.0" />
-                                          <Line endX="25.0" endY="25.0" fill="BLACK" layoutX="344.0" layoutY="52.0" strokeWidth="3.0" />
-                                          <Line endX="25.0" endY="25.0" fill="BLACK" layoutX="343.0" layoutY="267.0" strokeWidth="3.0" />
-                                          <Label fx:id="LAroom3" layoutX="42.0" layoutY="39.0" text="Room 3" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="31.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAroom2" layoutX="42.0" layoutY="259.0" text="Room 2" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="31.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAroom1" layoutX="369.0" layoutY="447.0" text="Room 1" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="31.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAroom4" layoutX="428.0" layoutY="39.0" text="Room 4" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="31.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAcurentmoroom3vieinput" layoutX="42.0" layoutY="96.0" text="Current movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAnextmovieinputroom3" layoutX="42.0" layoutY="191.0" text="Next movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAseatsinputroom3" layoutX="42.0" layoutY="138.0" text="Seats /80" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAseatsinputroom2" layoutX="42.0" layoutY="351.0" text="Seats /80" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAnextmovieinputroom2" layoutX="42.0" layoutY="404.0" text="Next movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAcurentmovieinputroom2" layoutX="42.0" layoutY="309.0" text="Current movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAcurentmovieinputroom4" layoutX="428.0" layoutY="104.0" text="Current movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAnextmovieinputroom4" layoutX="428.0" layoutY="199.0" text="Next movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAseatsinputroom4" layoutX="428.0" layoutY="146.0" text="Seats /80" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAseatsinputroom1" layoutX="511.0" layoutY="492.0" text="Seats /80" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAnextmovieinputroom1" layoutX="511.0" layoutY="545.0" text="Next movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="LAcurentmovieinputroom1" layoutX="511.0" layoutY="450.0" text="Current movie" textFill="WHITE">
-                                             <font>
-                                                <Font name="Baskerville Old Face" size="22.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </Tab>
                             <Tab text="Per Movie">
                                  <content>
                                     <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -146,26 +57,6 @@
                                                    </font>
                                                 </Label>
                                                 <Label fx:id="LAtiketsoldinput1" text="XX" GridPane.columnIndex="1">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeguestinput1" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldechildreninput1" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsoldeseniorinput1" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAtiketsolderegularinput1" text="XX" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
@@ -194,17 +85,7 @@
                                                 <TextField fx:id="TFchildrenpriceinput1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                                                 <TextField fx:id="TFseniorpriceinput1" minHeight="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                                                 <TextField fx:id="TFregularpriceinput1" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                                                <Label fx:id="LAcashguestinput1" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
                                                 <Label fx:id="LAdol11" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashchildreninput1" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="3">
                                                    <font>
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
@@ -214,17 +95,7 @@
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="LAcashseniorinput1" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
                                                 <Label fx:id="LAdol13" text="\$" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                                                   <font>
-                                                      <Font name="Bookman Old Style" size="18.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label fx:id="LAcashregularinput1" text="XX" GridPane.columnIndex="5" GridPane.rowIndex="5">
                                                    <font>
                                                       <Font name="Bookman Old Style" size="18.0" />
                                                    </font>
@@ -266,6 +137,11 @@
                                           <Button fx:id="BUnext" layoutX="746.0" layoutY="230.0" mnemonicParsing="false" onAction="#ActioncurrentpermovieBUnext" prefHeight="204.0" prefWidth="81.0" text="-&gt; " />
                                           <Button fx:id="BUprevious" layoutX="164.0" layoutY="230.0" mnemonicParsing="false" onAction="#ActioncurentpermovieBUprevious" prefHeight="200.0" prefWidth="81.0" text="&lt;-" />
                                           <Button fx:id="BUsavemovieprice" layoutX="390.0" layoutY="456.0" mnemonicParsing="false" onAction="#ActionBUsavemovieprice" prefHeight="25.0" prefWidth="218.0" text="Save new price" />
+                                          <Label fx:id="LApricemovieAlerte" layoutX="305.0" layoutY="497.0" prefHeight="17.0" prefWidth="376.0" textFill="RED">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
                                        </children></AnchorPane>
                                  </content>
                               </Tab>
@@ -312,6 +188,11 @@
                         <Label fx:id="LAselectedimage" layoutX="579.0" layoutY="543.0" text="Selected image" />
                         <Button fx:id="BUaddmovie" layoutX="565.0" layoutY="579.0" mnemonicParsing="false" onAction="#ActionBUaddmovie" prefHeight="50.0" prefWidth="189.0" text="Add movie" />
                         <DatePicker fx:id="DPreleasedate" layoutX="641.0" layoutY="79.0" promptText="Realese Date" />
+                        <Label fx:id="LAmovieaddAlerte" layoutX="464.0" layoutY="41.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -352,6 +233,11 @@
                         <Label fx:id="LAselectmovie2" layoutX="713.0" layoutY="152.0" text="Selecte Session ID" />
                         <Button fx:id="BUdeletesession" layoutX="706.0" layoutY="285.0" mnemonicParsing="false" onAction="#ActionBUdeletesession" prefHeight="51.0" prefWidth="242.0" text="Delete" />
                         <ChoiceBox fx:id="CBsessiondelete" layoutX="752.0" layoutY="189.0" prefWidth="150.0" />
+                        <Label fx:id="LAsessionaddAlerte" layoutX="270.0" layoutY="580.0" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
                </content>
             </Tab>

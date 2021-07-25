@@ -4,6 +4,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * The type Session.
+ */
 public class Session {
     private Timestamp timestamp;
     private String time;
@@ -14,6 +17,15 @@ public class Session {
     private int room;
 
 
+    /**
+     * Instantiates a new Session.
+     *
+     * @param IDsession  the dsession
+     * @param leftPlaces the left places
+     * @param timestamp  the timestamp
+     * @param room       the room
+     * @param IDfilm     the dfilm
+     */
     public Session (int IDsession,int leftPlaces,Timestamp timestamp,int room,int IDfilm){
         this.timestamp=timestamp;
         this.time= timestamp.toString().substring(11);
@@ -24,26 +36,56 @@ public class Session {
         this.room=room;
     }
 
+    /**
+     * Gets i dsession.
+     *
+     * @return the i dsession
+     */
     public int getIDsession() {
         return IDsession;
     }
 
+    /**
+     * Gets date.
+     *
+     * @return the date
+     */
     public String getDate() {
         return date;
     }
 
+    /**
+     * Gets time.
+     *
+     * @return the time
+     */
     public String getTime() {
         return time;
     }
 
+    /**
+     * Gets room.
+     *
+     * @return the room
+     */
     public int getRoom() {
         return room;
     }
 
+    /**
+     * Gets left places.
+     *
+     * @return the left places
+     */
     public int getLeftPlaces() {
         return leftPlaces;
     }
 
+    /**
+     * Gets i dfilm.
+     *
+     * @return the i dfilm
+     */
     public int getIDfilm() {
         return IDfilm;
     }
