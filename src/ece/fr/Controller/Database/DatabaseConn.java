@@ -127,7 +127,12 @@ public class DatabaseConn {
             ticketsold=ticketsold+(80-rs.getInt(2));
         return ticketsold;
     }
-
+    public void updateticketprice (int movieID,int priceGuest,int priceRegular,int priceChildren,int priceSenior)throws SQLException{
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("UPDATE `film` SET `PriceGuest`='"+ priceGuest+"',`PriceRegular`='"+ priceRegular+"',`PriceChildren`='"+ priceChildren+"',`PriceSenior`='"+ priceSenior+"' WHERE `FilmID`='" + movieID + "';");
+        //ResultSet rs = stmt.executeQuery("UPDATE `film` SET `PriceGuest` = '"+ priceGuest +"', `PriceRegular` = '"+ priceRegular +"', `PriceChildren`= '"+ priceChildren +"', `PriceSenior`= '"+ priceSenior +"' WHERE `FilmID` = '" + movieID + "';");
+    }
 
     /*
      * TODO update methods

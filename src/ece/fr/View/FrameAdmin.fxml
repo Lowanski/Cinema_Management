@@ -248,6 +248,7 @@
                                           </Label>
                                           <Button fx:id="BUnext" layoutX="746.0" layoutY="230.0" mnemonicParsing="false" onAction="#ActioncurrentpermovieBUnext" prefHeight="204.0" prefWidth="81.0" text="-&gt; " />
                                           <Button fx:id="BUprevious" layoutX="164.0" layoutY="230.0" mnemonicParsing="false" onAction="#ActioncurentpermovieBUprevious" prefHeight="200.0" prefWidth="81.0" text="&lt;-" />
+                                          <Button fx:id="BUsavemovieprice" layoutX="390.0" layoutY="456.0" mnemonicParsing="false" onAction="#ActionBUsavemovieprice" prefHeight="25.0" prefWidth="218.0" text="Save new price" />
                                        </children></AnchorPane>
                                  </content>
                               </Tab>

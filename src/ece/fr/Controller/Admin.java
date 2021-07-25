@@ -474,6 +474,8 @@ private int imageconvoyerbell=1;
     @FXML
     private Button BUdeletesession;
     @FXML
+    private Button BUsavemovieprice;
+    @FXML
     private Label LAdol32;
 
     @FXML
@@ -823,17 +825,70 @@ private int imageconvoyerbell=1;
     }
 
     @FXML
-    void ActioncurentpermovieBUprevious(ActionEvent event) {
-
+    void ActioncurentpermovieBUprevious(ActionEvent event) throws SQLException {
+        DatabaseConn db = new DatabaseConn();
+        int filmpos=0;
+        ArrayList<Film> films;
+        films = db.getFilm();
+        for(int i = 0; i < films.size(); i++){
+            if (LAmovie1inpout.getText().equals(films.get(i).getName())) {
+                filmpos = i-1;
+            }
+        }
+        if (filmpos<0){
+            filmpos = films.size()-1;
+        }
+        LAmovie1inpout.setText(films.get(filmpos).getName());
+        LAtiketsoldinput1.setText(String.valueOf(db.getticketsold(films.get(filmpos).getID())));
+        TFguestpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceGuest()));
+        TFchildrenpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceChildren()));
+        TFseniorpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceSenior()));
+        TFregularpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceRegular()));
     }
 
     @FXML
-    void ActioncurrentpermovieBUnext(ActionEvent event) {
-
+    void ActioncurrentpermovieBUnext(ActionEvent event) throws SQLException {
+        DatabaseConn db = new DatabaseConn();
+        int filmpos=0;
+        ArrayList<Film> films;
+        films = db.getFilm();
+        for(int i = 0; i < films.size(); i++){
+            if (LAmovie1inpout.getText().equals(films.get(i).getName())) {
+                filmpos = i+1;
+            }
+        }
+        if (filmpos==films.size()){
+            filmpos=0;
+        }
+        LAmovie1inpout.setText(films.get(filmpos).getName());
+        LAtiketsoldinput1.setText(String.valueOf(db.getticketsold(films.get(filmpos).getID())));
+        TFguestpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceGuest()));
+        TFchildrenpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceChildren()));
+        TFseniorpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceSenior()));
+        TFregularpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceRegular()));
     }
 
     @FXML
     void TFaddmoviedescreptioninput(ActionEvent event) {
 
+    }
+    @FXML
+    void ActionBUsavemovieprice(ActionEvent event) throws SQLException {
+        DatabaseConn db = new DatabaseConn();
+        int filmID=0;
+        ArrayList<Film> films;
+        films = db.getFilm();
+        for(int i = 0; i < films.size(); i++){
+            if (LAmovie1inpout.getText().equals(films.get(i).getName())) {
+                filmID = films.get(i).getID();
+            }
+        }
+        int isvalide=0;
+        if(isvalide==1){
+
+        }
+        else{
+            db.updateticketprice(filmID,Integer.valueOf(TFguestpriceinput1.getText()),Integer.valueOf(TFregularpriceinput1.getText()),Integer.valueOf(TFchildrenpriceinput1.getText()),Integer.valueOf(TFseniorpriceinput1.getText()));
+        }
     }
 }
