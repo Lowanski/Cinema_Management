@@ -74,19 +74,20 @@ public class Payment implements Initializable {
     @FXML
     void handleButtonActionBUvalidate(ActionEvent event) throws InterruptedException, SQLException {
         DatabaseConn db = new DatabaseConn();
-        if (TFcardname.getLength() == 0 || TFcardnumber.getLength() == 0 || TFcodesecu.getLength() != 3)  {
+        if (TFcardname.getLength() == 0 || TFcardnumber.getLength() == 0 || TFcodesecu.getLength() != 3) {
             LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.INDIANRED)));
             LAtransac.setText("Please enter Credit Card credential");
         } else {
             if (user != null)
-                db.createBooking(user.getUserID(),reservation.getSession().getIDsession());
-            else
-                db.createUser(null,"Guest"+db.getUser().size()+1,null,0,null,null,0);
+                db.createBooking(user.getUserID(), reservation.getSession().getIDsession());
+            else {
+                db.createUser(null, "Guest" + db.getUser().size() + 1, null, 0, null, null, 0);
                 ArrayList<User> guestUserList = db.getUser();
-                db.createBooking(guestUserList.get(guestUserList.size()-1).getUserID(),reservation.getSession().getIDsession());
-                db.updateSessionLeftPlace(reservation.getSession().getIDsession(),reservation.getSession().getLeftPlaces()- (reservation.getNumberChildren()+ reservation.getNumberGuest()+ reservation.getNumberSenior()+ reservation.getNumberStandard()));
-            LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.GREEN)));
-            LAtransac.setText("Transaction done. You have booked " +reservation.getFilm().getName()+" on "+reservation.getSession().getDate()+" at "+reservation.getSession().getTime()+", good movie !");
+                db.createBooking(guestUserList.get(guestUserList.size() - 1).getUserID(), reservation.getSession().getIDsession());
+                db.updateSessionLeftPlace(reservation.getSession().getIDsession(), reservation.getSession().getLeftPlaces() - (reservation.getNumberChildren() + reservation.getNumberGuest() + reservation.getNumberSenior() + reservation.getNumberStandard()));
+                LAtransac.setTextFill(Paint.valueOf(String.valueOf(Color.GREEN)));
+                LAtransac.setText("Transaction done. You have booked " + reservation.getFilm().getName() + " on " + reservation.getSession().getDate() + " at " + reservation.getSession().getTime() + ", good movie !");
+            }
         }
     }
 
@@ -107,11 +108,11 @@ public class Payment implements Initializable {
      */
     public void transferReservation(Reservation reservation) {
         this.reservation = reservation;
-        LAchildren.setText(reservation.getNumberChildren()*reservation.getFilm().getPriceChildren() + " $");
-        LAguest.setText(reservation.getNumberGuest()*reservation.getFilm().getPriceGuest() + " $");
-        LAsenior.setText(reservation.getNumberSenior()*reservation.getFilm().getPriceSenior() + " $");
-        LAstandart.setText(reservation.getNumberStandard()*reservation.getFilm().getPriceRegular() + " $");
-        LAtotprice.setText(reservation.getTotPrice()+" $");
+        LAchildren.setText(reservation.getNumberChildren() * reservation.getFilm().getPriceChildren() + " $");
+        LAguest.setText(reservation.getNumberGuest() * reservation.getFilm().getPriceGuest() + " $");
+        LAsenior.setText(reservation.getNumberSenior() * reservation.getFilm().getPriceSenior() + " $");
+        LAstandart.setText(reservation.getNumberStandard() * reservation.getFilm().getPriceRegular() + " $");
+        LAtotprice.setText(reservation.getTotPrice() + " $");
     }
 
     @Override
