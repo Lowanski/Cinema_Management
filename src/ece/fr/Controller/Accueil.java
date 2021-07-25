@@ -308,6 +308,7 @@ public class Accueil implements Initializable {
         LApriceregularInput.setText(Integer.toString(listFilms.get(filmSelected).getPriceRegular()));
 
         LAfilmnameInput.setText(listFilms.get(filmSelected).getName());
+        LAfilmdescriptionInput.setWrapText(true);
         LAfilmdescriptionInput.setText(listFilms.get(filmSelected).getDescription());
         LAfilmtypeInput.setText(listFilms.get(filmSelected).getGender());
 

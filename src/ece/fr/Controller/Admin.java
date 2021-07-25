@@ -596,7 +596,7 @@ private int imageconvoyerbell=1;
         }
     }
     @FXML
-    public void imageinitialize () throws SQLException {
+    public void imageinitialize() throws SQLException {
         imageconvoyerbell =1;
         DatabaseConn db = new DatabaseConn();
         ArrayList<String> listlink;
@@ -622,7 +622,7 @@ private int imageconvoyerbell=1;
 
     }
     @FXML
-    public void movieinitialize () throws SQLException {
+    public void movieinitialize() throws SQLException {
         DatabaseConn db = new DatabaseConn();
         ArrayList<Film> films;
         films = db.getFilm();
@@ -642,7 +642,7 @@ private int imageconvoyerbell=1;
         TFregularpriceinput1.setText(String.valueOf(films.get(0).getPriceRegular()));
     }
     @FXML
-    public void sessioninitialize () throws SQLException, ParseException {
+    public void sessioninitialize() throws SQLException, ParseException {
         DatabaseConn db = new DatabaseConn();
         CBsessiondelete.getItems().clear();
         TVsession.getItems().clear();;

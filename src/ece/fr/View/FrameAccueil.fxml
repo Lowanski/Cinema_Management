@@ -197,7 +197,7 @@
                 <Font name="Arial" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="LAfilmtypeInput" layoutX="303.0" layoutY="422.0" prefHeight="42.0" prefWidth="232.0" text="Type1 Type2">
+        <Label fx:id="LAfilmtypeInput" layoutX="227.0" layoutY="422.0" prefHeight="42.0" prefWidth="323.0" text="Type1 Type2">
             <font>
                 <Font name="Baskerville Old Face" size="27.0" />
             </font>
