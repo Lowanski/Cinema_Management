@@ -22,7 +22,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="CBsession" layoutX="515.0" layoutY="200.0" prefHeight="27.0" prefWidth="353.0" />
+      <ChoiceBox fx:id="CBsession" layoutX="515.0" layoutY="200.0" onAction="#handleButtonAction" prefHeight="27.0" prefWidth="353.0" />
       <Button fx:id="BUbuy" layoutX="860.0" layoutY="609.0" mnemonicParsing="false" onAction="#handleButtonActionBUbuy" text="Buy" />
       <Button fx:id="BUback" layoutX="84.0" layoutY="610.0" mnemonicParsing="false" onAction="#handleButtonActionBUback" text="Back" />
       <Pane layoutX="426.0" layoutY="294.0" prefHeight="268.0" prefWidth="530.0" style="-fx-background-color: #4797C8#4797C8;">
@@ -44,5 +44,8 @@
          </children>
       </Pane>
       <Label layoutX="515.0" layoutY="168.0" text="Choose a session" />
+      <Label layoutX="515.0" layoutY="254.0" text="Remaining places :" />
+      <Label fx:id="LAleftPlaces" layoutX="649.0" layoutY="254.0" text="0" />
+      <Label fx:id="LAerror" layoutX="321.0" layoutY="616.0" prefHeight="31.0" prefWidth="427.0" textFill="#b70808" />
    </children>
 </AnchorPane>

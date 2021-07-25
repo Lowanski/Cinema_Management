@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
+/**
+ * The type Payment.
+ */
 public class Payment implements Initializable {
     private AuthentificatedUser user;
     private Reservation reservation;
@@ -61,6 +64,13 @@ public class Payment implements Initializable {
     @FXML
     private Label LAguest;
 
+    /**
+     * Handle button action buvalidate. validation of the payement
+     *
+     * @param event the event
+     * @throws InterruptedException the interrupted exception
+     * @throws SQLException         the sql exception
+     */
     @FXML
     void handleButtonActionBUvalidate(ActionEvent event) throws InterruptedException, SQLException {
         DatabaseConn db = new DatabaseConn();
@@ -80,11 +90,21 @@ public class Payment implements Initializable {
         }
     }
 
+    /**
+     * Transfer user. forward info of user
+     *
+     * @param user the user
+     */
     @FXML
     public void transferUser(AuthentificatedUser user) {
         this.user = user;
     }
 
+    /**
+     * Transfer reservation.  forward info of reservation
+     *
+     * @param reservation the reservation
+     */
     public void transferReservation(Reservation reservation) {
         this.reservation = reservation;
         LAchildren.setText(reservation.getNumberChildren()*reservation.getFilm().getPriceChildren() + " $");

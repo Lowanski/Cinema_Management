@@ -26,6 +26,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * The type Sign in.
+ */
 public class SignIn implements Initializable {
 
     @FXML
@@ -66,6 +69,12 @@ public class SignIn implements Initializable {
     @FXML
     private Label LAgrospathe;
 
+    /**
+     * Create new account. handle button to create a new account
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void createNewAccount(ActionEvent event) throws IOException {
         Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameNewAccount.fxml")));
@@ -75,6 +84,12 @@ public class SignIn implements Initializable {
         appStage.show();
     }
 
+    /**
+     * Sign in as guest. handle the event of to sign in as a guest
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void signInAsGuest(ActionEvent event) throws IOException {
         Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameAccueil.fxml")));
@@ -85,6 +100,14 @@ public class SignIn implements Initializable {
     }
 
 
+    /**
+     * Validate credential. validate the signin form
+     *
+     * @param event the event
+     * @throws IOException    the io exception
+     * @throws SQLException   the sql exception
+     * @throws ParseException the parse exception
+     */
     @FXML
     void validateCredential(ActionEvent event) throws IOException, SQLException, ParseException {
 
@@ -120,6 +143,11 @@ public class SignIn implements Initializable {
         LAerrormessage.setText("ERROR : Bad email or password");
     }
 
+    /**
+     * Quit application.
+     *
+     * @param event the event
+     */
     @FXML
     void quitApplication(ActionEvent event) {
         System.exit(0);

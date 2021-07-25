@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * The type New account.
+ */
 public class NewAccount implements Initializable {
     @FXML
     private ImageView IMpetitlogod;
@@ -66,6 +69,12 @@ public class NewAccount implements Initializable {
     @FXML
     private ImageView IMpetitlogog;
 
+    /**
+     * Go to sign in frame
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void goToSignIn(ActionEvent event) throws IOException {
         Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameSignIn.fxml")));
@@ -75,6 +84,13 @@ public class NewAccount implements Initializable {
         appStage.show();
     }
 
+    /**
+     * Validate formular for a new account
+     *
+     * @param event the event
+     * @throws SQLException the sql exception
+     * @throws IOException  the io exception
+     */
     @FXML
     void validateFormular(ActionEvent event) throws SQLException, IOException {
         DatabaseConn db = new DatabaseConn();

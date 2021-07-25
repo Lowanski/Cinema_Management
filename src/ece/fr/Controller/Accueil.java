@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+/**
+ * The type Accueil.
+ */
 public class Accueil implements Initializable {
     private ArrayList<Film> listFilms = null;
     private ArrayList<Image>filmImage = null;
@@ -161,6 +164,11 @@ public class Accueil implements Initializable {
     @FXML
     private ImageView IVuserlogo;
 
+    /**
+     * Handle button action buprevious, change the movie display on screen and info to previous one.
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUprevious(ActionEvent event) {
         if (filmSelected == 0){
@@ -187,6 +195,11 @@ public class Accueil implements Initializable {
         setInfo();
     }
 
+    /**
+     * Handle button action bunext: change the movie display on screen and info to next one.
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUnext(ActionEvent event) {
         if (filmSelected == listFilms.size()-1){
@@ -214,6 +227,11 @@ public class Accueil implements Initializable {
     }
 
 
+    /**
+     * Handle button action buminusstandart: check and do if possible to delete a ticket chose by the user in guest category (only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUminusstandart(ActionEvent event) {
         if (reservation.getNumberGuest() >= 1)
@@ -221,12 +239,22 @@ public class Accueil implements Initializable {
         setInfo();
     }
 
+    /**
+     * Handle button action buaddstandart: add a ticket in guest category(only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUaddstandart(ActionEvent event) {
         reservation.setNumberGuest(reservation.getNumberGuest()+1);
         setInfo();
     }
 
+    /**
+     * Handle button action b uminusregular. check and do if possible to delete a ticket chose by the user in regular category(only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUminusregular(ActionEvent event) {
         if (reservation.getNumberStandard() >= 1)
@@ -234,12 +262,22 @@ public class Accueil implements Initializable {
         setInfo();
     }
 
+    /**
+     * Handle button action buaddregular.add a ticket in regular category(only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUaddregular(ActionEvent event) {
         reservation.setNumberStandard(reservation.getNumberStandard()+1);
         setInfo();
     }
 
+    /**
+     * Handle button action b uminussenior. check and do if possible to delete a ticket chose by the user in senior category(only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUminussenior(ActionEvent event) {
         if (reservation.getNumberSenior() >= 1)
@@ -247,12 +285,22 @@ public class Accueil implements Initializable {
         setInfo();
     }
 
+    /**
+     * Handle button action buaddsenior.add a ticket in senior category(only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUaddsenior(ActionEvent event) {
         reservation.setNumberSenior(reservation.getNumberSenior()+1);
         setInfo();
     }
 
+    /**
+     * Handle button action b uminuschildren. check and do if possible to delete a ticket chose by the user in children category(only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUminuschildren(ActionEvent event) {
         if (reservation.getNumberChildren() >= 1)
@@ -260,12 +308,24 @@ public class Accueil implements Initializable {
         setInfo();
     }
 
+    /**
+     * Handle button action b uaddchidren.add a ticket in children category(only frontend)
+     *
+     * @param event the event
+     */
     @FXML
     void handleButtonActionBUaddchidren(ActionEvent event) {
         reservation.setNumberChildren(reservation.getNumberChildren() + 1);
         setInfo();
     }
 
+    /**
+     * Handle button action bubook. creat a boookink for the ticket chosen by the customer
+     *
+     * @param event the event
+     * @throws IOException  the io exception
+     * @throws SQLException the sql exception
+     */
     @FXML
     void handleButtonActionBUbook(ActionEvent event) throws IOException, SQLException {
         if (user == null) {
@@ -292,6 +352,12 @@ public class Accueil implements Initializable {
         }
     }
 
+    /**
+     * Handle button action buback.go back to the signin page
+     *
+     * @param event the event
+     * @throws IOException the io exception
+     */
     @FXML
     void handleButtonActionBUback(ActionEvent event) throws IOException {
         Parent home = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("ece/fr/View/FrameSignIn.fxml")));
@@ -300,7 +366,11 @@ public class Accueil implements Initializable {
         appStage.setScene(scene);
         appStage.show();
     }
-
+    /**
+     * setInfo. set all the information display for a movie
+     *
+     *
+     */
     private void setInfo() {
         LApricestandardInput.setText(Integer.toString(listFilms.get(filmSelected).getPriceGuest()));
         LApricechildrenInput.setText(Integer.toString(listFilms.get(filmSelected).getPriceChildren()));
@@ -322,7 +392,11 @@ public class Accueil implements Initializable {
         reservation.setTotPrice((reservation.getNumberGuest() * listFilms.get(filmSelected).getPriceGuest()) + (reservation.getNumberStandard() * listFilms.get(filmSelected).getPriceRegular()) + (reservation.getNumberSenior() * listFilms.get(filmSelected).getPriceSenior()) + (reservation.getNumberChildren() * listFilms.get(filmSelected).getPriceChildren()));
         LAtotalpriceoutput.setText(Integer.toString(reservation.getTotPrice()));
     }
-
+    /**
+     * setFilmImage. set image display for a movie
+     *
+     *
+     */
     private void setFilmImage() throws FileNotFoundException {
         filmImage = new ArrayList<>();
         for (int i = 0; i < listFilms.size(); i++) {
@@ -330,7 +404,11 @@ public class Accueil implements Initializable {
             filmImage.add(new Image(inputStream));
         }
     }
-
+    /**
+     * initialize the slider image and info
+     *
+     *
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         DatabaseConn db = new DatabaseConn();
@@ -359,6 +437,11 @@ public class Accueil implements Initializable {
         LAusername.setText("Guest");
     }
 
+    /**
+     * Transfer user. forward user info between frame
+     *
+     * @param user the user
+     */
     @FXML
     public void transferUser(AuthentificatedUser user) {
         FileInputStream inputstream = null;

@@ -31,6 +31,9 @@ import javafx.collections.ObservableList;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * The type Admin.
+ */
 public class Admin {
 private int imageconvoyerbell=1;
     @FXML
@@ -521,7 +524,12 @@ private int imageconvoyerbell=1;
 
     @FXML
     private Label LAcashchildreninput2;
-
+    @FXML
+    private Label LApricemovieAlerte;
+    @FXML
+    private Label LAmovieaddAlerte;
+    @FXML
+    private Label LAsessionaddAlerte;
     @FXML
     private Label LAcashchildreninput1;
     @FXML
@@ -571,7 +579,14 @@ private int imageconvoyerbell=1;
     @FXML
     private LineChart<?, ?> LCone;
 
+
     @FXML
+    /**
+     * Handle the add movie button, create a new film class then save it into the database
+     * @param no parameter
+     * @return no return
+     * @throws SQLException
+     */
     void ActionBUaddmovie(ActionEvent event) throws SQLException, IOException {
         DatabaseConn db = new DatabaseConn();
         ArrayList<Film> listMovies;
@@ -582,7 +597,12 @@ private int imageconvoyerbell=1;
         for (Film movie : listMovies) {
             if (TFaddmovienameinput.getText().equals(movie.getName())) {
                 isValide = 1;
+                LAmovieaddAlerte.setText("Movie still exist");
             }
+        }
+        if(DPreleasedate.getValue().toString().isEmpty()){
+            isValide = 1;
+            LAmovieaddAlerte.setText("Eneter a realase date");
         }
         if (isValide == 1){
 
@@ -593,9 +613,20 @@ private int imageconvoyerbell=1;
             db.createFilm(newFilm.getName(), newFilm.getGender(), newFilm.getDescription(), newFilm.getPriceChildren(), newFilm.getPriceGuest(), newFilm.getPriceRegular(), newFilm.getPriceSenior(), newFilm.getDate(),Integer.toString(imageconvoyerbell+1));
             movieinitialize();
             imageinitialize();
+            LAmovieaddAlerte.setText("Successful film creation");
+            TFaddmovienameinput.clear();
+            TFaddmoviegenreinput.clear();
+            TFaddmoviedescreptioninput.clear();
         }
     }
+
+    /**
+     * Image initialize or actualize of the slider to choose a movie image
+     *
+     * @throws SQLException the sql exception
+     */
     @FXML
+
     public void imageinitialize () throws SQLException {
         imageconvoyerbell =1;
         DatabaseConn db = new DatabaseConn();
@@ -621,6 +652,12 @@ private int imageconvoyerbell=1;
         IVaddlist3.setImage(listImage.get(2));
 
     }
+
+    /**
+     * Initialize or actualize the label and choisebox related to the list of movie
+     *
+     * @throws SQLException the sql exception
+     */
     @FXML
     public void movieinitialize () throws SQLException {
         DatabaseConn db = new DatabaseConn();
@@ -641,6 +678,13 @@ private int imageconvoyerbell=1;
         TFseniorpriceinput1.setText(String.valueOf(films.get(0).getPriceSenior()));
         TFregularpriceinput1.setText(String.valueOf(films.get(0).getPriceRegular()));
     }
+
+    /**
+     * Initialize or actualize the choisebox and info displar (tableview ect) for each session.
+     *
+     * @throws SQLException   the sql exception
+     * @throws ParseException the parse exception
+     */
     @FXML
     public void sessioninitialize () throws SQLException, ParseException {
         DatabaseConn db = new DatabaseConn();
@@ -793,10 +837,25 @@ private int imageconvoyerbell=1;
     }
 
 
+    /**
+     * ActionCBuptadesession: handle any click done on the choise box to actualize and update info on session
+     *
+     * @param event the event
+     * @throws SQLException   the sql exception
+     * @throws ParseException the parse exception
+     */
     @FXML
     void ActionCBuptadesession(ActionEvent event) throws SQLException, ParseException {
         sessioninitialize();
     }
+
+    /**
+     * ActionBUdeletesession: handle the button event to delete a session, call a DB fonction to delete related session based on the session selected in the choisebox
+     *
+     * @param event the event
+     * @throws SQLException   the sql exception
+     * @throws ParseException the parse exception
+     */
     @FXML
     void ActionBUdeletesession(ActionEvent event) throws SQLException, ParseException {
         DatabaseConn db = new DatabaseConn();
@@ -806,6 +865,12 @@ private int imageconvoyerbell=1;
         sessioninitialize();
     }
 
+    /**
+     * ActionBUaddnext: change the image display to select a image related to the movie when added (to the next)
+     *
+     * @param event the event
+     * @throws SQLException the sql exception
+     */
     @FXML
     void ActionBUaddnext(ActionEvent event) throws SQLException {
         imageconvoyerbell=imageconvoyerbell+1;
@@ -836,6 +901,12 @@ private int imageconvoyerbell=1;
         IVaddlist3.setImage(listImage.get(2));
     }
 
+    /**
+     * ActionBUaddprevious: change the image display to select a image related to the movie when added (to the previous)
+     *
+     * @param event the event
+     * @throws SQLException the sql exception
+     */
     @FXML
     void ActionBUaddprevious(ActionEvent event) throws SQLException {
         imageconvoyerbell=imageconvoyerbell-1;
@@ -867,6 +938,13 @@ private int imageconvoyerbell=1;
 
     }
 
+    /**
+     * ActionBUaddsession: when button click, check if the format is ok and create a new session store in DB by calling a DB methode
+     *
+     * @param event the event
+     * @throws SQLException   the sql exception
+     * @throws ParseException the parse exception
+     */
     @FXML
     void ActionBUaddsession(ActionEvent event) throws SQLException, ParseException {
         Date date = Date.valueOf(DPaddsessioninput.getValue());
@@ -875,11 +953,39 @@ private int imageconvoyerbell=1;
         DatabaseConn db = new DatabaseConn();
         int isValide = 0;
 
+        if (TFaddsessiontimeinput.getText().matches("\\d{2}:\\d{2}:\\d{2}$")){
 
-        if (isValide == 1){
 
         }
         else {
+            LAsessionaddAlerte.setText("Time format 00:00:00");
+            isValide = 1;
+        }
+        if (TFaddsessionroominput.getText().matches("\\d{1}$")){
+            if (Integer.parseInt(TFaddsessionroominput.getText())<5 && Integer.parseInt(TFaddsessionroominput.getText())>0 ){
+                isValide = 1;
+                LAsessionaddAlerte.setText("Room need to be 1,2,3 or 4");
+            }
+            else {
+
+            }
+        }
+        else {
+            isValide = 1;
+            LAsessionaddAlerte.setText("Room need to be 1,2,3 or 4");
+        }
+        if (DPaddsessioninput.getValue().toString().isEmpty()){
+            LAsessionaddAlerte.setText("Choise a date");
+        }
+        else {
+
+        }
+
+        if (isValide == 1){
+            //LAsessionaddAlerte.setText("Room need to be 1,2,3 or 4");
+        }
+
+        else  {
             Object filmname = CBmanagesessionselectmovie.getValue();
             int filmID=0;
             ArrayList<Film> films;
@@ -895,11 +1001,22 @@ private int imageconvoyerbell=1;
             //System.out.println(filmID);
 
             db.createSession(80, Timestamp.valueOf(time),Integer.valueOf(TFaddsessionroominput.getText()),filmID);
+            LAsessionaddAlerte.setText("Session add");
+            TFaddsessionroominput.clear();
+            TFaddsessiontimeinput.clear();
         }
+
         sessioninitialize();
 
     }
 
+    /**
+     * ActionBUdeletemovie: Delete the movie selected in the Choisebox (call a DB methode)
+     *
+     * @param event the event
+     * @throws SQLException   the sql exception
+     * @throws ParseException the parse exception
+     */
     @FXML
     void ActionBUdeletemovie(ActionEvent event) throws SQLException, ParseException {
         DatabaseConn db = new DatabaseConn();
@@ -920,6 +1037,12 @@ private int imageconvoyerbell=1;
 
     }
 
+    /**
+     * ActioncurentpermovieBUprevious: Change infos display on the frame to change the film price (to the previous movie)
+     *
+     * @param event the event
+     * @throws SQLException the sql exception
+     */
     @FXML
     void ActioncurentpermovieBUprevious(ActionEvent event) throws SQLException {
         DatabaseConn db = new DatabaseConn();
@@ -942,6 +1065,12 @@ private int imageconvoyerbell=1;
         TFregularpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceRegular()));
     }
 
+    /**
+     * ActioncurrentpermovieBUnext: Change infos display on the frame to change the film price (to the next movie)
+     *
+     * @param event the event
+     * @throws SQLException the sql exception
+     */
     @FXML
     void ActioncurrentpermovieBUnext(ActionEvent event) throws SQLException {
         DatabaseConn db = new DatabaseConn();
@@ -964,10 +1093,14 @@ private int imageconvoyerbell=1;
         TFregularpriceinput1.setText(String.valueOf(films.get(filmpos).getPriceRegular()));
     }
 
-    @FXML
-    void TFaddmoviedescreptioninput(ActionEvent event) {
 
-    }
+
+    /**
+     * ActionBUsavemovieprice: check and update the new movie price put by the user
+     *
+     * @param event the event
+     * @throws SQLException the sql exception
+     */
     @FXML
     void ActionBUsavemovieprice(ActionEvent event) throws SQLException {
         DatabaseConn db = new DatabaseConn();
@@ -980,11 +1113,24 @@ private int imageconvoyerbell=1;
             }
         }
         int isvalide=0;
+        if ( TFguestpriceinput1.getText().matches("^\\d{1,}") && TFregularpriceinput1.getText().matches("^\\d{1,}") && TFchildrenpriceinput1.getText().matches("^\\d{1,}") && TFseniorpriceinput1.getText().matches("^\\d{1,}")){
+            if(Integer.parseInt(TFguestpriceinput1.getText())<0&&Integer.parseInt(TFregularpriceinput1.getText())<0&&Integer.parseInt(TFchildrenpriceinput1.getText())<0&&Integer.parseInt(TFseniorpriceinput1.getText())<0){
+                isvalide=1;
+                LApricemovieAlerte.setText("Price must be a number > 0");
+            }
+            else{
+
+            }
+        }
+        else{
+            isvalide=1;
+        }
         if(isvalide==1){
 
         }
         else{
             db.updateticketprice(filmID,Integer.valueOf(TFguestpriceinput1.getText()),Integer.valueOf(TFregularpriceinput1.getText()),Integer.valueOf(TFchildrenpriceinput1.getText()),Integer.valueOf(TFseniorpriceinput1.getText()));
+            LApricemovieAlerte.setText("Price succefuly update");
         }
     }
 
