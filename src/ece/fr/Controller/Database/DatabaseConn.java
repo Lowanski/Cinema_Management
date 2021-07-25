@@ -2,6 +2,7 @@ package ece.fr.Controller.Database;
 
 import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Film;
+import ece.fr.Model.Session;
 
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -65,6 +66,18 @@ public class DatabaseConn {
         return listImage;
     }
 
+    public ArrayList getListSession(int IDmovie) throws SQLException {
+        ArrayList<Session> listSession = new ArrayList<>();
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from `session` WHERE `FilmID` = '" + IDmovie + "';");
+        while (rs.next())
+            listSession.add(new Session(rs.getInt(1),rs.getInt(2),rs.getTimestamp(3),rs.getInt(4),rs.getInt(5)));
+        return listSession;
+    }
+
+
+
     public void createUser(String gender, String firstName,String name, int age, String email, String password, int type) throws SQLException {
         conn = createConnection();
         Statement stmt = conn.createStatement();
@@ -82,6 +95,19 @@ public class DatabaseConn {
         Statement stmt = conn.createStatement();
         int rs = stmt.executeUpdate("INSERT INTO `session` (`SessionID`,`LeftPlace` , `Schedule`, `Room`, `FilmID`) VALUES (NULL, '"+ place +"', '"+ time +"', '"+ room +"', '"+ filmID +"')");
     }
+    public void deleteSession (int sessionID) throws SQLException {
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("DELETE FROM `session` WHERE `SessionID` ='" + sessionID + "';");
+    }
+    public void deleteMovie (int movieID) throws SQLException {
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        int rs = stmt.executeUpdate("DELETE FROM `session` WHERE `FilmID` ='" + movieID + "';");
+        int rs1 = stmt.executeUpdate("DELETE FROM `film` WHERE `FilmID` ='" + movieID + "';");
+
+    }
+
 
     /*
      * TODO update methods

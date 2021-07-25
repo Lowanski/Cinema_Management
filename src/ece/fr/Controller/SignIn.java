@@ -98,6 +98,7 @@ public class SignIn implements Initializable {
                 Admin adminController = loader.getController();
                 adminController.imageinitialize();
                 adminController.movieinitialize();
+                adminController.sessioninitialize();
                 Scene scene = new Scene(home);
                 Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 appStage.setScene(scene);

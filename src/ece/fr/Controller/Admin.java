@@ -1,11 +1,14 @@
 package ece.fr.Controller;
 
 import ece.fr.Controller.Database.DatabaseConn;
-import ece.fr.Model.AuthentificatedUser;
 import ece.fr.Model.Film;
+import ece.fr.Model.Session;
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -16,9 +19,9 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.net.URL;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
+
+import static java.lang.Integer.parseInt;
 
 public class Admin {
 private int imageconvoyerbell=1;
@@ -468,7 +471,8 @@ private int imageconvoyerbell=1;
 
     @FXML
     private Button BUprevious;
-
+    @FXML
+    private Button BUdeletesession;
     @FXML
     private Label LAdol32;
 
@@ -529,6 +533,23 @@ private int imageconvoyerbell=1;
     @FXML
     private ChoiceBox CBmanagesessionselectmovie;
     @FXML
+    private ChoiceBox CBdeletemovie;
+    @FXML
+    private ChoiceBox CBsessiondelete;
+    @FXML
+    private TableView <Integer>TVsession;
+    @FXML
+    private TableColumn<Integer, String> TVid;
+    @FXML
+    private TableColumn<Integer, String> TCdate;
+    @FXML
+    private TableColumn<Integer, String> TVtime;
+    @FXML
+    private TableColumn<Integer, String> TVroom;
+    @FXML
+    private TableColumn<Integer, String> TVleft;
+
+    @FXML
     void ActionBUaddmovie(ActionEvent event) throws SQLException, IOException {
         DatabaseConn db = new DatabaseConn();
         ArrayList<Film> listMovies;
@@ -548,6 +569,8 @@ private int imageconvoyerbell=1;
             //A object FILM is created and after add to the data base
             Film newFilm = new Film (isValide ,TFaddmovienameinput.getText(),TFaddmoviegenreinput.getText(),TFaddmoviedescreptioninput.getText(), Date.valueOf(DPreleasedate.getValue()),listlink.get(imageconvoyerbell));
             db.createFilm(newFilm.getName(), newFilm.getGender(), newFilm.getDescription(), newFilm.getPriceChildren(), newFilm.getPriceGuest(), newFilm.getPriceRegular(), newFilm.getPriceSenior(), newFilm.getDate(),Integer.toString(imageconvoyerbell+1));
+            movieinitialize();
+            imageinitialize();
         }
     }
     @FXML
@@ -581,10 +604,103 @@ private int imageconvoyerbell=1;
         DatabaseConn db = new DatabaseConn();
         ArrayList<Film> films;
         films = db.getFilm();
+        CBmanagesessionselectmovie.getItems().clear();
+        CBdeletemovie.getItems().clear();
         for (int i = 0; i < films.size(); i++) {
             CBmanagesessionselectmovie.getItems().add(films.get(i));
+            CBdeletemovie.getItems().add(films.get(i));
         }
         CBmanagesessionselectmovie.getSelectionModel().select(0);
+        CBdeletemovie.getSelectionModel().select(0);
+
+    }
+    @FXML
+    public void sessioninitialize () throws SQLException {
+        DatabaseConn db = new DatabaseConn();
+        CBsessiondelete.getItems().clear();
+        TVsession.getItems().clear();;
+        TVsession.getColumns().clear();
+
+        ArrayList<Session> listSession;
+        int filmID = 0;
+        ArrayList<Film> films;
+        films = db.getFilm();
+        Object filmname = CBmanagesessionselectmovie.getValue();
+        for (int i = 0; i < films.size(); i++) {
+            if (filmname.toString().equals(films.get(i).getName())) {
+                filmID = films.get(i).getID();
+            }
+        }
+        listSession = db.getListSession(filmID);
+        ArrayList<String> id=new ArrayList<>();
+        ArrayList<String> date=new ArrayList<>();
+        ArrayList<String> time=new ArrayList<>();
+        ArrayList<String> room=new ArrayList<>();
+        ArrayList<String> place=new ArrayList<>();
+        for (int i = 0; i < listSession.size(); i++) {
+            CBsessiondelete.getItems().add(listSession.get(i));
+            TVsession.getItems().add(i);
+            id.add(String.valueOf(listSession.get(i).getIDsession()));
+            date.add(listSession.get(i).getDate());
+            time.add(listSession.get(i).getTime());
+            room.add(String.valueOf(listSession.get(i).getRoom()));
+            place.add(String.valueOf(listSession.get(i).getLeftPlaces()));
+            //TVsession.setItems(String.valueOf(listSession.get(i).getIDsession()));
+
+
+            TVid.setCellValueFactory(cellData -> {
+                Integer rowIndex = cellData.getValue();
+                return new ReadOnlyStringWrapper(id.get(rowIndex));
+            });
+            TCdate.setCellValueFactory(cellData -> {
+                Integer rowIndex = cellData.getValue();
+                return new ReadOnlyStringWrapper(date.get(rowIndex));
+            });
+            TVtime.setCellValueFactory(cellData -> {
+                Integer rowIndex = cellData.getValue();
+                return new ReadOnlyStringWrapper(time.get(rowIndex));
+            });
+            TVroom.setCellValueFactory(cellData -> {
+                Integer rowIndex = cellData.getValue();
+                return new ReadOnlyStringWrapper(room.get(rowIndex));
+            });
+            TVleft.setCellValueFactory(cellData -> {
+                Integer rowIndex = cellData.getValue();
+                return new ReadOnlyStringWrapper(place.get(rowIndex));
+            });
+
+            TVsession.getColumns().clear();
+            TVsession.getColumns().add(TVid);
+            TVsession.getColumns().add(TCdate);
+            TVsession.getColumns().add(TVtime);
+            TVsession.getColumns().add(TVroom);
+            TVsession.getColumns().add(TVleft);
+
+            /*
+            TVid.s(listSession.get(i).getIDsession());
+            TCdate.getColumns().add(listSession.get(i).getDate());
+            TVtime.getColumns().add(listSession.get(i).getTime());
+            TVroom.getColumns().add(listSession.get(i).getRoom());
+            TVleft.getColumns().add(listSession.get(i).getLeftPlaces());
+
+             */
+        }
+        CBsessiondelete.getSelectionModel().select(0);
+        TVsession.setPlaceholder(new Label("No sessions to display"));
+    }
+
+
+    @FXML
+    void ActionCBuptadesession(ActionEvent event) throws SQLException {
+        sessioninitialize();
+    }
+    @FXML
+    void ActionBUdeletesession(ActionEvent event) throws SQLException {
+        DatabaseConn db = new DatabaseConn();
+        int sessionID = 0;
+        sessionID = parseInt(CBsessiondelete.getValue().toString());
+        db.deleteSession(sessionID);
+        sessioninitialize();
     }
 
     @FXML
@@ -669,7 +785,7 @@ private int imageconvoyerbell=1;
                 //System.out.println(filmname.toString());
                 //System.out.println(films.get(i).getName());
                 if (filmname.toString().equals(films.get(i).getName())) {
-                    filmID = i+1;
+                    filmID = films.get(i).getID();
 
                 }
             }
@@ -677,13 +793,27 @@ private int imageconvoyerbell=1;
 
             db.createSession(80, Timestamp.valueOf(time),Integer.valueOf(TFaddsessionroominput.getText()),filmID);
         }
-
-
+        sessioninitialize();
 
     }
 
     @FXML
-    void ActionBUdeletemovie(ActionEvent event) {
+    void ActionBUdeletemovie(ActionEvent event) throws SQLException {
+        DatabaseConn db = new DatabaseConn();
+        Object filmname = CBdeletemovie.getValue();
+        int filmID=0;
+        ArrayList<Film> films;
+        films = db.getFilm();
+        //Find the correct film ID
+        for(int i = 0; i < films.size(); i++){
+            if (filmname.toString().equals(films.get(i).getName())) {
+                filmID = films.get(i).getID();
+            }
+        }
+        db.deleteMovie(filmID);
+        imageinitialize();
+        movieinitialize();
+        sessioninitialize();
 
     }
 

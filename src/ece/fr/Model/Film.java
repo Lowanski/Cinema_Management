@@ -98,7 +98,7 @@ public class Film {
         this.priceSenior = priceSenior;
     }
     @Override
-    public String toString(){
+    public String toString(){ //The ChoiceBOX element use natively the tostring methode to display the name of the object added
         return name;
     }
 }
