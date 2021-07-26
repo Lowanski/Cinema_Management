@@ -258,9 +258,9 @@
             <Label layoutX="35.0" layoutY="29.0" text="Ticket booked" textFill="WHITE" />
             <TableView fx:id="TVtickets" layoutX="38.0" layoutY="86.0" prefHeight="404.0" prefWidth="239.0">
               <columns>
-                <TableColumn fx:id="COsessionID" prefWidth="75.0" text="SessionID" />
-                <TableColumn fx:id="COfilmname" prefWidth="75.0" text="Film Name" />
-                  <TableColumn fx:id="COdate" prefWidth="88.0" text="Date" />
+                <TableColumn fx:id="COsessionID" prefWidth="75.0" text="Film Name" />
+                <TableColumn fx:id="COfilmname" prefWidth="83.0" text="Date" />
+                  <TableColumn fx:id="COdate" text="Time" />
               </columns>
             </TableView>
          </children>

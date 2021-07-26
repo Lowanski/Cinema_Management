@@ -546,6 +546,9 @@ public class Accueil implements Initializable {
                 ArrayList<Session> listSession = db.getticketuser(user.getUserID());
                 ArrayList<Film> listFilm = db.getFilm();
 
+                TVtickets.getItems().clear();;
+                TVtickets.getColumns().clear();
+
                 ArrayList<String> id=new ArrayList<>();
                 ArrayList<String> name=new ArrayList<>();
                 ArrayList<String> date=new ArrayList<>();
@@ -555,14 +558,14 @@ public class Accueil implements Initializable {
                 listSession) {
                     TVtickets.getItems().add(comptor);
 
-                    id.add(String.valueOf(s.getIDsession()));
+
                     for (Film f: listFilm) {
                         if (f.getID()==s.getIDfilm()){
-                            name.add(String.valueOf(f.getName()));
+                            id.add(String.valueOf(f.getName()));
                         }
                     }
-
-                    date.add(String.valueOf(s.getDate()));
+                    name.add(String.valueOf(s.getDate()));
+                    date.add(String.valueOf(s.getTime()));
 
                     COsessionID.setCellValueFactory(cellData -> {
                         Integer rowIndex = cellData.getValue();
@@ -585,6 +588,7 @@ public class Accueil implements Initializable {
                     comptor++;
 
                 }
+
                 PAticket.setVisible(true);
             }
         }
