@@ -2,10 +2,8 @@ package ece.fr.Controller;
 
 
 import ece.fr.Controller.Database.DatabaseConn;
-import ece.fr.Model.AuthentificatedUser;
-import ece.fr.Model.Film;
-import ece.fr.Model.Reservation;
-import ece.fr.Model.User;
+import ece.fr.Model.*;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,8 +13,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -164,6 +166,21 @@ public class Accueil implements Initializable {
     @FXML
     private ImageView IVuserlogo;
 
+    @FXML
+    private Pane PAticket;
+
+    @FXML
+    private TableView<Integer> TVtickets;
+
+    @FXML
+    private TableColumn<Integer, String> COsessionID;
+
+    @FXML
+    private TableColumn<Integer, String> COfilmname;
+
+    @FXML
+    private TableColumn<Integer, String> COdate;
+
     /**
      * Handle button action buprevious, change the movie display on screen and info to previous one.
      *
@@ -269,8 +286,10 @@ public class Accueil implements Initializable {
      */
     @FXML
     void handleButtonActionBUaddregular(ActionEvent event) {
-        reservation.setNumberStandard(reservation.getNumberStandard()+1);
-        setInfo();
+        if(user != null){
+            reservation.setNumberStandard(reservation.getNumberStandard()+1);
+            setInfo();
+        }
     }
 
     /**
@@ -292,8 +311,10 @@ public class Accueil implements Initializable {
      */
     @FXML
     void handleButtonActionBUaddsenior(ActionEvent event) {
-        reservation.setNumberSenior(reservation.getNumberSenior()+1);
-        setInfo();
+        if(user != null){
+            reservation.setNumberSenior(reservation.getNumberSenior()+1);
+            setInfo();
+        }
     }
 
     /**
@@ -315,8 +336,11 @@ public class Accueil implements Initializable {
      */
     @FXML
     void handleButtonActionBUaddchidren(ActionEvent event) {
-        reservation.setNumberChildren(reservation.getNumberChildren() + 1);
-        setInfo();
+        if(user != null){
+            reservation.setNumberChildren(reservation.getNumberChildren() + 1);
+            setInfo();
+        }
+
     }
 
     /**
@@ -510,5 +534,59 @@ public class Accueil implements Initializable {
         }
         assert user != null;
         LAusername.setText(user.getFirstName() + " " + user.getName());
+    }
+
+    @FXML
+    void userTickets(MouseEvent event) throws SQLException {
+        if (user != null){
+            if(PAticket.isVisible()){
+                PAticket.setVisible(false);
+            }else{
+                DatabaseConn db = new DatabaseConn();
+                ArrayList<Session> listSession = db.getticketuser(user.getUserID());
+                ArrayList<Film> listFilm = db.getFilm();
+
+                ArrayList<String> id=new ArrayList<>();
+                ArrayList<String> name=new ArrayList<>();
+                ArrayList<String> date=new ArrayList<>();
+
+                int comptor = 0;
+                for (Session s:
+                listSession) {
+                    TVtickets.getItems().add(comptor);
+
+                    id.add(String.valueOf(s.getIDsession()));
+                    for (Film f: listFilm) {
+                        if (f.getID()==s.getIDfilm()){
+                            name.add(String.valueOf(f.getName()));
+                        }
+                    }
+
+                    date.add(String.valueOf(s.getDate()));
+
+                    COsessionID.setCellValueFactory(cellData -> {
+                        Integer rowIndex = cellData.getValue();
+                        return new ReadOnlyStringWrapper(id.get(rowIndex));
+                    });
+                    COfilmname.setCellValueFactory(cellData -> {
+                        Integer rowIndex = cellData.getValue();
+                        return new ReadOnlyStringWrapper(name.get(rowIndex));
+                    });
+                    COdate.setCellValueFactory(cellData -> {
+                        Integer rowIndex = cellData.getValue();
+                        return new ReadOnlyStringWrapper(date.get(rowIndex));
+                    });
+
+                    TVtickets.getColumns().clear();
+                    TVtickets.getColumns().add(COsessionID);
+                    TVtickets.getColumns().add(COfilmname);
+                    TVtickets.getColumns().add(COdate);
+
+                    comptor++;
+
+                }
+                PAticket.setVisible(true);
+            }
+        }
     }
 }

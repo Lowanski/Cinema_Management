@@ -5,7 +5,6 @@ import ece.fr.Model.Film;
 import ece.fr.Model.Session;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -145,6 +144,17 @@ public class DatabaseConn {
         while (rs.next())
             ticketsold=ticketsold+(80-rs.getInt(2));
         return ticketsold;
+    }
+
+    public ArrayList<Session> getticketuser (int userID) throws SQLException{
+        ArrayList<Session> listSession = new ArrayList<>();
+        conn = createConnection();
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * from `Booking` LEFT JOIN Session ON Booking.SessionID = Session.SessionID WHERE `UserID` = '" + userID + "';");
+        while (rs.next()){
+            listSession.add(new Session(rs.getInt(3),rs.getInt(4),rs.getTimestamp(5),rs.getInt(6),rs.getInt(7)));
+        }
+        return listSession;
     }
 
 

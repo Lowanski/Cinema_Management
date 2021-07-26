@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Cinema_Management:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Cinema_Management_jar</output-path>
+    <root id="archive" name="Cinema_Management.jar">
+      <element id="module-output" name="Cinema_Management" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/UMLDesignTool.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../mysql-connector-java-8.0.25/mysql-connector-java-8.0.25.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
